@@ -11,8 +11,8 @@ import { fileURLToPath } from 'url';
 // import authRoutes from './routes/auth.js';
 // import userRoutes from './routes/users.js';
 // import postRoutes from './routes/posts.js';
-import {register} from './controllers/auth.js'
-import {createObservance} from './controllers/posts.js'
+import {register, login} from './controllers/auth.js'
+//import {createObservance} from './controllers/observances.js'
 // import { verifyToken } from './middleware/auth.js';
 // import User from './models/User.js';
 // import Post from './models/Post.js';
@@ -44,10 +44,10 @@ const upload =  multer({storage});
 
 //Routes With Files
 app.post('/auth/register', upload.single('picture'), register);
-app.post('/observances', verifyToken, upload.single('picture'), createObservance);
+//app.post('/observances', verifyToken, upload.single('picture'), createObservance);
 
 // //Routes not dependent on files/multer
-// app.use('/auth', authRoutes);
+app.post('/auth/login', login);
 // app.use('/users', userRoutes);
 // app.use('/posts', postRoutes);
 
