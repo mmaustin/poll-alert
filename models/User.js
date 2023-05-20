@@ -28,15 +28,20 @@ const UserSchema = mongoose.Schema({
         type: String,
         default: '',
     },
-    friends: {
-        type: Array,
-        default: [],
+    stateId: {
+        type: String,
+        required: true,
     },
-    location: String,
-    occupation: String,
-    viewedProfile: Number,
-    impressions: Number,
-}, {timestamps: true}
+    congressDist: {
+        type: Number,
+        required: true,
+    },
+    pollingPlace: {
+        type: String,
+        required: true,
+    }
+    },
+    {timestamps: true}
 );
 
 const User = mongoose.model("User", UserSchema);
