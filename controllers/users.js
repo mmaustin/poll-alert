@@ -1,4 +1,4 @@
-import User from "../models/User";
+import User from "../models/User.js";
 import jwt from 'jsonwebtoken';
 
 export const getUser = async (req, res) => {
@@ -34,3 +34,17 @@ export const updateUser = async (req, res) => {
     res.status(304).json({error: error.message})
   }
 };
+
+export const deleteUser = async(req, res) => {
+  try {
+    const {id} = req.params;
+    const user = await User.findById(id);
+
+    await user.remove()
+  
+    res.status(StatusCodes.OK).json({ msg: 'Voter account deleted.' })    
+
+  } catch (error) {
+    
+  }
+}

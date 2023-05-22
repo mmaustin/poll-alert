@@ -9,7 +9,7 @@ import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
 // import authRoutes from './routes/auth.js';
-// import userRoutes from './routes/users.js';
+import userRoutes from './routes/userRoutes.js'
 // import postRoutes from './routes/posts.js';
 import {register, login} from './controllers/auth.js'
 //import {createObservance} from './controllers/observances.js'
@@ -48,7 +48,7 @@ app.post('/auth/register', upload.single('picture'), register);
 
 // //Routes not dependent on files/multer
 app.post('/auth/login', login);
-// app.use('/users', userRoutes);
+app.use('/users', userRoutes);
 // app.use('/posts', postRoutes);
 
 //Mongoose setup
