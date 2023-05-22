@@ -16,7 +16,8 @@ const ObservanceSchema = mongoose.Schema(
         },
         description: {
           type: String,
-          required: true
+          required: true,
+          maxLength: 75
         },
         stateId: {
           type: String,
