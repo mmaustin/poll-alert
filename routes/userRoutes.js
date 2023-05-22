@@ -1,1 +1,1 @@
-//get all, update info, delete profile
+//get user, get all, update info, delete profile
