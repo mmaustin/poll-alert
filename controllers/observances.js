@@ -47,7 +47,20 @@ export const getObservance = async (req, res) => {
 }
 
 export const updateObservance = async (req, res) => {
-  res.status(200).send('Updated!');
+  try {
+    const {id} = req.params;
+    const {description} = req.body;
+    const observance = await Observance.findById(id)
+
+    observance.description = description;
+
+    await observance.save();
+
+    res.status(200).json(observance);
+
+  } catch (error) {
+    res.status(304).json({error: error.message})
+  }
 }
 
 export const alsoObserved = async (req, res) => {
@@ -55,5 +68,14 @@ export const alsoObserved = async (req, res) => {
 }
 
 export const deleteObservance = async (req, res) => {
-  res.status(200).send('Deleted!');
+  try {
+    const {id} = req.params;
+    await Observance.findByIdAndDelete(id);
+
+    const observances = await Observance.find();
+    res.status(200).json(observances);
+
+  } catch (error) {
+    res.status(404).json({message: error.message})
+  }
 }
