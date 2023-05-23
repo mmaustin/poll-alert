@@ -64,7 +64,27 @@ export const updateObservance = async (req, res) => {
 }
 
 export const alsoObserved = async (req, res) => {
-  res.status(200).send('Also observed, or not!')
+  try {
+    const {id} = req.params;
+    const {userId} = req.body;
+    const observance = await Observance.findById(id);
+    const isLiked = observance.alsoObserved.get(userId);
+
+    if(isLiked){
+       observance.alsoObserved.delete(userId);
+    } else {
+       observance.alsoObserved.set(userId, true);
+    }
+
+    const updatedObservance = await Observance.findByIdAndUpdate(
+        id,
+        {alsoObserved: observance.alsoObserved},
+        {new: true}
+    );
+    res.status(200).json(updatedObservance);
+  } catch (error) {
+    res.status(404).json({message: error.message});
+  }
 }
 
 export const deleteObservance = async (req, res) => {
