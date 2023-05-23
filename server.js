@@ -10,8 +10,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 // import authRoutes from './routes/auth.js';
 import userRoutes from './routes/userRoutes.js'
-// import postRoutes from './routes/posts.js';
+import observancesRoutes from './routes/observanceRoutes.js'
 import {register, login} from './controllers/auth.js'
+//import { verifyToken } from './middleware/auth.js';
 //import {createObservance} from './controllers/observances.js'
 // import { verifyToken } from './middleware/auth.js';
 // import User from './models/User.js';
@@ -49,7 +50,7 @@ app.post('/auth/register', upload.single('picture'), register);
 // //Routes not dependent on files/multer
 app.post('/auth/login', login);
 app.use('/users', userRoutes);
-// app.use('/posts', postRoutes);
+app.use('/observances', observancesRoutes);
 
 //Mongoose setup
 const PORT = process.env.PORT || 6001;
