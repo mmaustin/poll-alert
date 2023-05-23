@@ -27,11 +27,23 @@ export const createObservance = async(req, res) => {
 }
 
 export const getObservances = async (req, res) => {
-  res.status(200).send('Got em!');
+  try {
+    const observances = await Observance.find();
+    res.status(200).json(observances);
+
+  } catch (error) {
+    res.status(400).json({message: error.message})
+  }
 }
 
 export const getObservance = async (req, res) => {
-  res.status(200).send('Got it!');
+  try {
+    const {id} = req.params;
+    const observance = await Observance.findById(id);
+    res.status(200).json(observance);
+  } catch (error) {
+    res.status(404).json({message: error.message})
+  }
 }
 
 export const updateObservance = async (req, res) => {
