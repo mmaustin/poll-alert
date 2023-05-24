@@ -4,7 +4,8 @@ const initialState = {
     mode: 'light',
     user: null,
     token: null,
-    observances: []
+    observances: [],
+    // unitedState: unitedStates
 };
 
 export const authSlice = createSlice({
