@@ -1,6 +1,6 @@
 import { nanoid } from "@reduxjs/toolkit";
 
-export const unitedStates = [
+const unitedStates = [
   {
     name: 'ALABAMA',
     _id: nanoid(),
@@ -452,3 +452,5 @@ export const unitedStates = [
     totalReps: 0
   },
 ];
+
+export default unitedStates;

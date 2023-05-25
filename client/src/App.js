@@ -1,6 +1,5 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { useMemo } from "react";
-import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import HomePage from "scenes/homePage";
 import LoginPage from "scenes/loginPage";
@@ -8,8 +7,8 @@ import ObservancePage from "scenes/observancePage";
 import StatePage from "scenes/statePage";
 
 
-function App() {
 
+function App() {
 
 
   return (
