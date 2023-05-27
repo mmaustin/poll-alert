@@ -1,13 +1,20 @@
 //my navbar: Poll Alert: Help Us Ensure Fair Elections, dark mode, home, about, state page menu dropdown, logout
 import { useState } from "react";
-import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery} from "@mui/material";
+import { InputLabel, FormHelperText, Box, Button, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery} from "@mui/material";
 import { Search, Message, DarkMode, LightMode, Notifications, Help, Menu, Close, WhereToVote, HowToVoteTwoTone } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout} from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween";
+import unitedStates from "statesFolder";
 
 const Navbar = () => {
+
+  const [state, setState] = useState('');
+  const handleChange = e => {
+      setState(e.target.value)
+  };
+  console.log(state);
 
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
@@ -42,10 +49,10 @@ const Navbar = () => {
           POLL<IconButton><WhereToVote color="success" /></IconButton>ALERT
         </Typography>
         {isNonMobileScreens && (
-          <FlexBetween backgroundColor={neutralLight} borderRadius="9px" gap="3rem" padding="0.1rem 1.5rem">
-            <InputBase placeholder="Secure The: "/>
+          <FlexBetween backgroundColor={neutralLight} borderRadius="9px" padding="0.1rem 1.5rem">
+            <InputBase sx={{ color: 'red', fontWeight: 'bold' }} placeholder="Help Us Secure The Vote"/>
             <IconButton>
-              <HowToVoteTwoTone/>
+              <HowToVoteTwoTone color="success" />
             </IconButton>
           </FlexBetween>
         )}
@@ -60,9 +67,31 @@ const Navbar = () => {
               <LightMode sx={{color: dark, fontSize: "25px"}} />
             )}
           </IconButton>
-          <Message sx={{color: dark, fontSize: "25px"}} />
-          <Notifications sx={{color: dark, fontSize: "25px"}} />
-          <Help sx={{color: dark, fontSize: "25px"}} />
+          <Button color='inherit'>About</Button>
+          <Button color='inherit'>Home</Button>
+          {/* <Button color='inherit'> */}
+            <FormControl sx={{ m: 1, minWidth: 120 }}>
+              <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
+              <Select
+                labelId="demo-simple-select-helper-label"
+                id="demo-simple-select-helper"
+                value={state}
+                label="State"
+                onChange={handleChange}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                {unitedStates.map(state => {
+                  return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
+                })}
+                {/* <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem> */}
+              </Select>
+              <FormHelperText>Select Your State's Page</FormHelperText>
+            </FormControl>
+          {/* </Button> */}
           <FormControl variant="standard" value={fullName}>
               <Select
                 value={fullName}
