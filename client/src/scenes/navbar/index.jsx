@@ -1,7 +1,7 @@
 //my navbar: Poll Alert: Help Us Ensure Fair Elections, dark mode, home, about, state page menu dropdown, logout
 import { useState } from "react";
 import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery} from "@mui/material";
-import { Search, Message, DarkMode, LightMode, Notifications, Help, Menu, Close } from "@mui/icons-material";
+import { Search, Message, DarkMode, LightMode, Notifications, Help, Menu, Close, WhereToVote, HowToVoteTwoTone } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout} from "state";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +30,7 @@ const Navbar = () => {
         <Typography
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
-          color="secondary"
+          color="error"
           onClick={()=> navigate('/home')}
           sx={{
             "&:hoover": {
@@ -39,13 +39,13 @@ const Navbar = () => {
             },
           }}
         >
-          Sociopedia
+          POLL<IconButton><WhereToVote color="success" /></IconButton>ALERT
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween backgroundColor={neutralLight} borderRadius="9px" gap="3rem" padding="0.1rem 1.5rem">
-            <InputBase placeholder="Search..."/>
+            <InputBase placeholder="Secure The: "/>
             <IconButton>
-              <Search/>
+              <HowToVoteTwoTone/>
             </IconButton>
           </FlexBetween>
         )}
