@@ -14,7 +14,6 @@ const Navbar = () => {
   const handleChange = e => {
       setState(e.target.value)
   };
-  console.log(state);
 
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
@@ -49,8 +48,8 @@ const Navbar = () => {
           POLL<IconButton><WhereToVote color="success" /></IconButton>ALERT
         </Typography>
         {isNonMobileScreens && (
-          <FlexBetween backgroundColor={neutralLight} borderRadius="9px" padding="0.1rem 1.5rem">
-            <InputBase sx={{ color: 'red', fontWeight: 'bold' }} placeholder="Help Us Secure The Vote"/>
+          <FlexBetween backgroundColor='black' borderRadius="9px" padding="0.1rem 1.5rem">
+            <InputBase sx={{ color: 'white', fontWeight: 'bold' }} placeholder="Help Us Secure The Vote"/>
             <IconButton>
               <HowToVoteTwoTone color="success" />
             </IconButton>
@@ -70,27 +69,28 @@ const Navbar = () => {
           <Button color='inherit'>About</Button>
           <Button color='inherit'>Home</Button>
           {/* <Button color='inherit'> */}
-            <FormControl sx={{ m: 1, minWidth: 120 }}>
-              <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
-              <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                value={state}
-                label="State"
-                onChange={handleChange}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                {unitedStates.map(state => {
-                  return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
-                })}
-                {/* <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem> */}
-              </Select>
-              <FormHelperText>Select Your State's Page</FormHelperText>
-            </FormControl>
+          <FormControl sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={state}
+              label="State"
+              onChange={handleChange}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              {unitedStates.map(state => {
+                return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
+              })}
+              {/* <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem> */}
+            </Select>
+            <FormHelperText>Select Your State's Page</FormHelperText>
+          </FormControl>
+          {state && <Button size='small' variant='contained'>Go</Button>}
           {/* </Button> */}
           <FormControl variant="standard" value={fullName}>
               <Select
