@@ -84,9 +84,6 @@ const Navbar = () => {
               {unitedStates.map(state => {
                 return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
               })}
-              {/* <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem> */}
             </Select>
             <FormHelperText>Select Your State's Page</FormHelperText>
           </FormControl>
@@ -153,10 +150,57 @@ const Navbar = () => {
                 <LightMode sx={{color: dark, fontSize: "25px"}} />
               )}
             </IconButton>
-            <Message sx={{color: dark, fontSize: "25px"}} />
+            {/* <Message sx={{color: dark, fontSize: "25px"}} />
             <Notifications sx={{color: dark, fontSize: "25px"}} />
-            <Help sx={{color: dark, fontSize: "25px"}} />
+            <Help sx={{color: dark, fontSize: "25px"}} /> */}
+            <Button color='inherit'>About</Button>
+          <Button color='inherit'>Home</Button>
+          {/* <Button color='inherit'> */}
+          <FormControl sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={state}
+              label="State"
+              onChange={handleChange}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              {unitedStates.map(state => {
+                return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
+              })}
+            </Select>
+            <FormHelperText>Select Your State's Page</FormHelperText>
+          </FormControl>
+          {state && <Button size='small' variant='contained'>Go</Button>}
+          {/* </Button> */}
             <FormControl variant="standard" value={fullName}>
+                <Select
+                  value={fullName}
+                  sx={{
+                    backgroundColor: neutralLight,
+                    width: "150px",
+                    borderRadius: "0.25rem",
+                    p: "0.25rem 1 rem",
+                    "& .MuiSvgIcon-root": {
+                      pr: "0.25rem",
+                      width: "3rem"
+                    },
+                    "& .MuiSelect-select:focus": {
+                      backgroundColor: neutralLight
+                    }
+                  }}
+                  input={<InputBase/>}
+                >
+                  <MenuItem value={fullName}>
+                    <Typography>{fullName}</Typography>
+                  </MenuItem>
+                  <MenuItem onClick={()=> dispatch(setLogout())}>Log Out</MenuItem>
+                </Select>
+            </FormControl>
+            {/* <FormControl variant="standard" value={fullName}>
               <Select
                 value={fullName}
                 sx={{
@@ -179,7 +223,7 @@ const Navbar = () => {
                 </MenuItem>
                 <MenuItem onClick={()=> dispatch(setLogout())}>Log Out</MenuItem>
               </Select>
-            </FormControl>
+            </FormControl> */}
           </FlexBetween>          
           </Box>
         )}
