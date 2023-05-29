@@ -1,9 +1,8 @@
-import { nanoid } from "@reduxjs/toolkit";
 
 const unitedStates = [
   {
     name: 'ALABAMA',
-    _id: nanoid(),
+    _id: 'xlzqptycg1',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -12,7 +11,7 @@ const unitedStates = [
   },
   {
     name: 'ALASKA',
-    _id: nanoid(),
+    _id: 'xlzqptycg2',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -21,7 +20,7 @@ const unitedStates = [
   },
   {
     name: 'ARIZONA',
-    _id: nanoid(),
+    _id: 'xlzqptycg3',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -30,7 +29,7 @@ const unitedStates = [
   },
   {
     name: 'ARKANSAS',
-    _id: nanoid(),
+    _id: 'xlzqptycg4',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -39,7 +38,7 @@ const unitedStates = [
   },
   {
     name: 'CALIFORNIA',
-    _id: nanoid(),
+    _id: 'xlzqptycg5',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -48,7 +47,7 @@ const unitedStates = [
   },
   {
     name: 'COLORADO',
-    _id: nanoid(),
+    _id: 'xlzqptycg6',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -57,7 +56,7 @@ const unitedStates = [
   },
   {
     name: 'CONNECTICUT',
-    _id: nanoid(),
+    _id: 'xlzqptycg7',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -66,7 +65,7 @@ const unitedStates = [
   },
   {
     name: 'DELAWARE',
-    _id: nanoid(),
+    _id: 'xlzqptycg8',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -75,7 +74,7 @@ const unitedStates = [
   },
   {
     name: 'FLORIDA',
-    _id: nanoid(),
+    _id: 'xlzqptycg9',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -84,7 +83,7 @@ const unitedStates = [
   },
   {
     name: 'GEORGIA',
-    _id: nanoid(),
+    _id: 'xlzqptycg10',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -93,7 +92,7 @@ const unitedStates = [
   },
   {
     name: 'HAWAII',
-    _id: nanoid(),
+    _id: 'xlzqptycg11',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -102,7 +101,7 @@ const unitedStates = [
   },
   {
     name: 'IDAHO',
-    _id: nanoid(),
+    _id: 'xlzqptycg12',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -111,7 +110,7 @@ const unitedStates = [
   },
   {
     name: 'ILLINOIS',
-    _id: nanoid(),
+    _id: 'xlzqptycg13',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -120,7 +119,7 @@ const unitedStates = [
   },
   {
     name: 'INDIANA',
-    _id: nanoid(),
+    _id: 'xlzqptycg14',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -129,7 +128,7 @@ const unitedStates = [
   },
   {
     name: 'IOWA',
-    _id: nanoid(),
+    _id: 'xlzqptycg15',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -138,7 +137,7 @@ const unitedStates = [
   },
   {
     name: 'KANSAS',
-    _id: nanoid(),
+    _id: 'xlzqptycg16',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -147,7 +146,7 @@ const unitedStates = [
   },
   {
     name: 'KENTUCKY',
-    _id: nanoid(),
+    _id: 'xlzqptycg17',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -156,7 +155,7 @@ const unitedStates = [
   },
   {
     name: 'LOUISIANA',
-    _id: nanoid(),
+    _id: 'xlzqptycg18',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -165,7 +164,7 @@ const unitedStates = [
   },
   {
     name: 'MAINE',
-    _id: nanoid(),
+    _id: 'xlzqptycg19',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -174,7 +173,7 @@ const unitedStates = [
   },
   {
     name: 'MARYLAND',
-    _id: nanoid(),
+    _id: 'xlzqptycg20',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -183,7 +182,7 @@ const unitedStates = [
   },
   {
     name: 'MASSACHUSETTS',
-    _id: nanoid(),
+    _id: 'xlzqptycg21',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -192,7 +191,7 @@ const unitedStates = [
   },
   {
     name: 'MICHIGAN',
-    _id: nanoid(),
+    _id: 'xlzqptycg22',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -201,7 +200,7 @@ const unitedStates = [
   },
   {
     name: 'MINNESOTA',
-    _id: nanoid(),
+    _id: 'xlzqptycg23',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -210,7 +209,7 @@ const unitedStates = [
   },
   {
     name: 'MISSISSIPPI',
-    _id: nanoid(),
+    _id: 'xlzqptycg24',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -219,7 +218,7 @@ const unitedStates = [
   },
   {
     name: 'MISSOURI',
-    _id: nanoid(),
+    _id: 'xlzqptycg25',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -228,7 +227,7 @@ const unitedStates = [
   },
   {
     name: 'MONTANA',
-    _id: nanoid(),
+    _id: 'xlzqptycg26',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -237,7 +236,7 @@ const unitedStates = [
   },
   {
     name: 'NEBRASKA',
-    _id: nanoid(),
+    _id: 'xlzqptycg27',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -246,7 +245,7 @@ const unitedStates = [
   },
   {
     name: 'NEVADA',
-    _id: nanoid(),
+    _id: 'xlzqptycg28',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -255,7 +254,7 @@ const unitedStates = [
   },
   {
     name: 'NEW HAMPSHIRE',
-    _id: nanoid(),
+    _id: 'xlzqptycg29',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -264,7 +263,7 @@ const unitedStates = [
   },
   {
     name: 'NEW JERSEY',
-    _id: nanoid(),
+    _id: 'xlzqptycg30',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -273,7 +272,7 @@ const unitedStates = [
   },
   {
     name: 'NEW MEXICO',
-    _id: nanoid(),
+    _id: 'xlzqptycg31',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -282,7 +281,7 @@ const unitedStates = [
   },
   {
     name: 'NEW YORK',
-    _id: nanoid(),
+    _id: 'xlzqptycg32',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -291,7 +290,7 @@ const unitedStates = [
   },
   {
     name: 'NORTH CAROLINA',
-    _id: nanoid(),
+    _id: 'xlzqptycg33',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -300,7 +299,7 @@ const unitedStates = [
   },
   {
     name: 'NORTH DAKOTA',
-    _id: nanoid(),
+    _id: 'xlzqptycg34',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -309,7 +308,7 @@ const unitedStates = [
   },
   {
     name: 'OHIO',
-    _id: nanoid(),
+    _id: 'xlzqptycg35',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -318,7 +317,7 @@ const unitedStates = [
   },
   {
     name: 'OKLAHOMA',
-    _id: nanoid(),
+    _id: 'xlzqptycg36',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -327,7 +326,7 @@ const unitedStates = [
   },
   {
     name: 'OREGON',
-    _id: nanoid(),
+    _id: 'xlzqptycg37',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -336,7 +335,7 @@ const unitedStates = [
   },
   {
     name: 'PENNSYLVANIA',
-    _id: nanoid(),
+    _id: 'xlzqptycg38',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -345,7 +344,7 @@ const unitedStates = [
   },
   {
     name: 'RHODE ISLAND',
-    _id: nanoid(),
+    _id: 'xlzqptycg39',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -354,7 +353,7 @@ const unitedStates = [
   },
   {
     name: 'SOUTH CAROLINA',
-    _id: nanoid(),
+    _id: 'xlzqptycg40',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -363,7 +362,7 @@ const unitedStates = [
   },
   {
     name: 'SOUTH DAKOTA',
-    _id: nanoid(),
+    _id: 'xlzqptycg41',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -372,7 +371,7 @@ const unitedStates = [
   },
   {
     name: 'TENNESSEE',
-    _id: nanoid(),
+    _id: 'xlzqptycg42',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -381,7 +380,7 @@ const unitedStates = [
   },
   {
     name: 'TEXAS',
-    _id: nanoid(),
+    _id: 'xlzqptycg43',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -390,7 +389,7 @@ const unitedStates = [
   },
   {
     name: 'UTAH',
-    _id: nanoid(),
+    _id: 'xlzqptycg44',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -399,7 +398,7 @@ const unitedStates = [
   },
   {
     name: 'VERMONT',
-    _id: nanoid(),
+    _id: 'xlzqptycg45',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -408,7 +407,7 @@ const unitedStates = [
   },
   {
     name: 'VIRGINIA',
-    _id: nanoid(),
+    _id: 'xlzqptycg46',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -417,7 +416,7 @@ const unitedStates = [
   },
   {
     name: 'WASHINGTON',
-    _id: nanoid(),
+    _id: 'xlzqptycg47',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -426,7 +425,7 @@ const unitedStates = [
   },
   {
     name: 'WEST VIRGINIA',
-    _id: nanoid(),
+    _id: 'xlzqptycg48',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -435,7 +434,7 @@ const unitedStates = [
   },
   {
     name: 'WISCONSIN',
-    _id: nanoid(),
+    _id: 'xlzqptycg49',
     population: 0,
     governor: '',
     flagPicturePath: '',
@@ -444,7 +443,7 @@ const unitedStates = [
   },
   {
     name: 'WYOMING',
-    _id: nanoid(),
+    _id: 'xlzqptycg50',
     population: 0,
     governor: '',
     flagPicturePath: '',

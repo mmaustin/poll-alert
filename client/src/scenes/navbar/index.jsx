@@ -36,7 +36,7 @@ const Navbar = () => {
         <Typography
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
-          color="error"
+          color="primary"
           onClick={()=> navigate('/home')}
           sx={{
             "&:hoover": {
@@ -85,9 +85,9 @@ const Navbar = () => {
                 return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
               })}
             </Select>
-            <FormHelperText>Select Your State's Page</FormHelperText>
+            <FormHelperText>Select A State</FormHelperText>
           </FormControl>
-          {state && <Button size='small' variant='contained'>Go</Button>}
+          {state && <Button size='small' variant='contained'>State Page</Button>}
           {/* </Button> */}
           <FormControl variant="standard" value={fullName}>
               <Select
@@ -123,16 +123,16 @@ const Navbar = () => {
         )}
         {/* Mobile Nav */}
         {!isNonMobileScreens && isMobileMenuToggled && (
-          <Box
-            position="fixed"
-            right="0"
-            bottom="0"
-            height="100%"
-            zIndex="10"
-            maxWidth="500px"
-            minWidth="300px"
-            backgroundColor={background}
-          >
+        <Box
+          position="fixed"
+          right="0"
+          bottom="0"
+          height="100%"
+          zIndex="10"
+          maxWidth="500px"
+          minWidth="300px"
+          backgroundColor={background}
+        >
             {/* Close icon */}
             <Box display="flex" justifyContent="flex-end" p="1rem">
               <IconButton
@@ -150,9 +150,6 @@ const Navbar = () => {
                 <LightMode sx={{color: dark, fontSize: "25px"}} />
               )}
             </IconButton>
-            {/* <Message sx={{color: dark, fontSize: "25px"}} />
-            <Notifications sx={{color: dark, fontSize: "25px"}} />
-            <Help sx={{color: dark, fontSize: "25px"}} /> */}
             <Button color='inherit'>About</Button>
           <Button color='inherit'>Home</Button>
           {/* <Button color='inherit'> */}
@@ -172,35 +169,11 @@ const Navbar = () => {
                 return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
               })}
             </Select>
-            <FormHelperText>Select Your State's Page</FormHelperText>
+            <FormHelperText>Select A State</FormHelperText>
           </FormControl>
-          {state && <Button size='small' variant='contained'>Go</Button>}
+          {state && <Button size='small' variant='contained'>State Page</Button>}
           {/* </Button> */}
             <FormControl variant="standard" value={fullName}>
-                <Select
-                  value={fullName}
-                  sx={{
-                    backgroundColor: neutralLight,
-                    width: "150px",
-                    borderRadius: "0.25rem",
-                    p: "0.25rem 1 rem",
-                    "& .MuiSvgIcon-root": {
-                      pr: "0.25rem",
-                      width: "3rem"
-                    },
-                    "& .MuiSelect-select:focus": {
-                      backgroundColor: neutralLight
-                    }
-                  }}
-                  input={<InputBase/>}
-                >
-                  <MenuItem value={fullName}>
-                    <Typography>{fullName}</Typography>
-                  </MenuItem>
-                  <MenuItem onClick={()=> dispatch(setLogout())}>Log Out</MenuItem>
-                </Select>
-            </FormControl>
-            {/* <FormControl variant="standard" value={fullName}>
               <Select
                 value={fullName}
                 sx={{
@@ -223,9 +196,9 @@ const Navbar = () => {
                 </MenuItem>
                 <MenuItem onClick={()=> dispatch(setLogout())}>Log Out</MenuItem>
               </Select>
-            </FormControl> */}
+            </FormControl>
           </FlexBetween>          
-          </Box>
+        </Box>
         )}
     </FlexBetween>
   )
