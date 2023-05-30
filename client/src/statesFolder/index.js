@@ -5,7 +5,7 @@ const unitedStates = [
     _id: 'xlzqptycg1',
     populationApprox: '5,100,000',
     governor: 'Kay Ivey',
-    flagPicturePath: '',
+    flagPicturePath: 'alabama.jpg',
     senators: ['Tommy Tuberville', 'Katie Britt'],
     totalReps: 7
   },
@@ -14,7 +14,7 @@ const unitedStates = [
     _id: 'xlzqptycg2',
     populationApprox: '740,000',
     governor: 'Mike Dunleavy',
-    flagPicturePath: '',
+    flagPicturePath: 'alaska.jpg',
     senators: ['Lisa Murkowski', 'Dan Sullivan'],
     totalReps: 1
   },
@@ -23,7 +23,7 @@ const unitedStates = [
     _id: 'xlzqptycg3',
     populationApprox: '7,200,000',
     governor: 'Katie Hobbs',
-    flagPicturePath: '',
+    flagPicturePath: 'arizona.jpg',
     senators: ['Kyrsten Sinema', 'Mark Kelly'],
     totalReps: 9
   },
@@ -32,7 +32,7 @@ const unitedStates = [
     _id: 'xlzqptycg4',
     populationApprox: '3,020,000',
     governor: 'Sarah Huckabee Sanders',
-    flagPicturePath: '',
+    flagPicturePath: 'arkansas.jpg',
     senators: ['Tom Cotton', 'John Boozman'],
     totalReps: 4
   },
@@ -41,7 +41,7 @@ const unitedStates = [
     _id: 'xlzqptycg5',
     populationApprox: '39,200,000',
     governor: 'Gavin Newsom',
-    flagPicturePath: '',
+    flagPicturePath: 'california.jpg',
     senators: ['Dianne Feinstein', 'Alex Padilla'],
     totalReps: 52
   },
@@ -50,7 +50,7 @@ const unitedStates = [
     _id: 'xlzqptycg6',
     populationApprox: '5,840,000',
     governor: 'Jared Polis',
-    flagPicturePath: '',
+    flagPicturePath: 'colorado.jpg',
     senators: ['Michael Bennet', 'John Hickenlooper'],
     totalReps: 0
   },
@@ -59,7 +59,7 @@ const unitedStates = [
     _id: 'xlzqptycg7',
     populationApprox: '3,610,000',
     governor: 'Ned Lamont',
-    flagPicturePath: '',
+    flagPicturePath: 'connecticut.jpg',
     senators: ['Richard Blumenthal', 'Chris Murphy'],
     totalReps: 5
   },
@@ -68,7 +68,7 @@ const unitedStates = [
     _id: 'xlzqptycg8',
     populationApprox: '1,020,000',
     governor: 'John Carney',
-    flagPicturePath: '',
+    flagPicturePath: 'delaware.jpg',
     senators: ['Tom Carper', 'Chris Coons'],
     totalReps: 1
   },
@@ -77,7 +77,7 @@ const unitedStates = [
     _id: 'xlzqptycg9',
     populationApprox: '22,400,00',
     governor: 'Ron DeSantis',
-    flagPicturePath: '',
+    flagPicturePath: 'florida.jpg',
     senators: ['Marco Rubio', 'Rick Scott'],
     totalReps: 28
   },
@@ -86,7 +86,7 @@ const unitedStates = [
     _id: 'xlzqptycg10',
     populationApprox: '10,800,000',
     governor: 'Brian Kemp',
-    flagPicturePath: '',
+    flagPicturePath: 'georgia.jpg',
     senators: ['Jon Ossoff', 'Raphael Warnock'],
     totalReps: 0
   },
@@ -95,7 +95,7 @@ const unitedStates = [
     _id: 'xlzqptycg11',
     populationApprox: '1,500,000',
     governor: 'Josh Green',
-    flagPicturePath: '',
+    flagPicturePath: 'hawaii.jpg',
     senators: ['Brian Schatz', 'Mazie Hirono'],
     totalReps: 2
   },
@@ -104,7 +104,7 @@ const unitedStates = [
     _id: 'xlzqptycg12',
     populationApprox: '2,000,000',
     governor: 'Brad Little',
-    flagPicturePath: '',
+    flagPicturePath: 'idaho.jpg',
     senators: ['Mike Crapo', 'Jim Risch'],
     totalReps: 2
   },
@@ -113,7 +113,7 @@ const unitedStates = [
     _id: 'xlzqptycg13',
     populationApprox: '12,820,000',
     governor: 'J.B. Pritzker',
-    flagPicturePath: '',
+    flagPicturePath: 'illinois.jpg',
     senators: ['Dick Durbin', 'Tammy Duckworth'],
     totalReps: 17
   },
@@ -122,7 +122,7 @@ const unitedStates = [
     _id: 'xlzqptycg14',
     populationApprox: '6,800,000',
     governor: 'Eric Holcomb',
-    flagPicturePath: '',
+    flagPicturePath: 'indiana.jpg',
     senators: ['Todd Young', 'Mike Braun'],
     totalReps: 9
   },
@@ -131,7 +131,7 @@ const unitedStates = [
     _id: 'xlzqptycg15',
     populationApprox: '3,200,000',
     governor: 'Kim Reynolds',
-    flagPicturePath: '',
+    flagPicturePath: 'iowa.jpg',
     senators: ['Chuck Grassley', 'Joni Ernst'],
     totalReps: 4
   },
@@ -140,7 +140,7 @@ const unitedStates = [
     _id: 'xlzqptycg16',
     populationApprox: '3,000,000',
     governor: 'Laura Kelly',
-    flagPicturePath: '',
+    flagPicturePath: 'kansas.jpg',
     senators: ['Jerry Moran', 'Roger Marshall'],
     totalReps: 4
   },
@@ -149,7 +149,7 @@ const unitedStates = [
     _id: 'xlzqptycg17',
     populationApprox: '4,510,000',
     governor: 'Andy Beshear',
-    flagPicturePath: '',
+    flagPicturePath: 'kentucky.jpg',
     senators: ['Mitch McConnell', 'Rand Paul'],
     totalReps: 6
   },
@@ -158,7 +158,7 @@ const unitedStates = [
     _id: 'xlzqptycg18',
     populationApprox: '4,660,000',
     governor: 'John Bel Edwards',
-    flagPicturePath: '',
+    flagPicturePath: 'louisiana.jpg',
     senators: ['Bill Cassidy', 'John Kennedy'],
     totalReps: 6
   },
@@ -167,7 +167,7 @@ const unitedStates = [
     _id: 'xlzqptycg19',
     populationApprox: '1,370,000',
     governor: 'Janet Mills',
-    flagPicturePath: '',
+    flagPicturePath: 'maine.jpg',
     senators: ['Susan Collins', 'Angus King'],
     totalReps: 2
   },
@@ -176,7 +176,7 @@ const unitedStates = [
     _id: 'xlzqptycg20',
     populationApprox: '6,200,000',
     governor: 'Wes Moore',
-    flagPicturePath: '',
+    flagPicturePath: 'maryland.jpg',
     senators: ['Ben Cardin', 'Chris Van Hollen'],
     totalReps: 8
   },
@@ -185,7 +185,7 @@ const unitedStates = [
     _id: 'xlzqptycg21',
     populationApprox: '6,980,000',
     governor: 'Maura Healey',
-    flagPicturePath: '',
+    flagPicturePath: 'massachusetts.jpg',
     senators: ['Elizabeth Warren', 'Ed Markey'],
     totalReps: 9
   },
@@ -194,7 +194,7 @@ const unitedStates = [
     _id: 'xlzqptycg22',
     populationApprox: '10,100,000',
     governor: 'Gretchen Whitmer',
-    flagPicturePath: '',
+    flagPicturePath: 'michigan,jpg',
     senators: ['Debbie Stabenow', 'Gary Peters'],
     totalReps: 13
   },
@@ -203,7 +203,7 @@ const unitedStates = [
     _id: 'xlzqptycg23',
     populationApprox: '5,720,000',
     governor: 'Tim Walz',
-    flagPicturePath: '',
+    flagPicturePath: 'minnesota.jpg',
     senators: ['Amy Klobuchar', 'Tina Smith'],
     totalReps: 8
   },
@@ -212,7 +212,7 @@ const unitedStates = [
     _id: 'xlzqptycg24',
     populationApprox: '3,000,000',
     governor: 'Tate Reeves',
-    flagPicturePath: '',
+    flagPicturePath: 'mississippi.jpg',
     senators: ['Roger Wicker', 'Cindy Hyde-Smith'],
     totalReps: 4
   },
@@ -221,7 +221,7 @@ const unitedStates = [
     _id: 'xlzqptycg25',
     populationApprox: '6,160,000',
     governor: 'Mike Pearson',
-    flagPicturePath: '',
+    flagPicturePath: 'missouri.jpg',
     senators: ['Josh Hawley', 'Eric Schmitt'],
     totalReps: 8
   },
@@ -230,7 +230,7 @@ const unitedStates = [
     _id: 'xlzqptycg26',
     populationApprox: '120,000',
     governor: 'Greg Gianforte',
-    flagPicturePath: '',
+    flagPicturePath: 'montana.jpg',
     senators: ['Jon Tester', 'Steve Daines'],
     totalReps: 2
   },
@@ -239,7 +239,7 @@ const unitedStates = [
     _id: 'xlzqptycg27',
     populationApprox: '2,000,000',
     governor: 'Jim Pillen',
-    flagPicturePath: '',
+    flagPicturePath: 'nebraska.jpg',
     senators: ['Deb Fischer', 'Pete Ricketts'],
     totalReps: 3
   },
@@ -248,7 +248,7 @@ const unitedStates = [
     _id: 'xlzqptycg28',
     populationApprox: '3,100,000',
     governor: 'Joe Lombardo',
-    flagPicturePath: '',
+    flagPicturePath: 'nevada.jpg',
     senators: ['Catherine Cortez Masto', 'Jacky Rosen'],
     totalReps: 4
   },
@@ -257,7 +257,7 @@ const unitedStates = [
     _id: 'xlzqptycg29',
     populationApprox: '1,400,000',
     governor: 'Chris Sununu',
-    flagPicturePath: '',
+    flagPicturePath: 'new-hampshire.jpg',
     senators: ['Jeanne Shaneen', 'Maggie Hassan'],
     totalReps: 2
   },
@@ -266,7 +266,7 @@ const unitedStates = [
     _id: 'xlzqptycg30',
     populationApprox: '9,300,000',
     governor: 'Phil Murphy',
-    flagPicturePath: '',
+    flagPicturePath: 'new-jersey.jpg',
     senators: ['Bob Menendez', 'Cory Booker'],
     totalReps: 12
   },
@@ -275,7 +275,7 @@ const unitedStates = [
     _id: 'xlzqptycg31',
     populationApprox: '2,120,000',
     governor: 'Michelle Lujan Grisham',
-    flagPicturePath: '',
+    flagPicturePath: 'new-mexico.jpg',
     senators: ['Martin Heinrich', 'Ben Ray Lujan'],
     totalReps: 3
   },
@@ -284,7 +284,7 @@ const unitedStates = [
     _id: 'xlzqptycg32',
     populationApprox: '20,200,000',
     governor: 'Kathy Hochul',
-    flagPicturePath: '',
+    flagPicturePath: 'new-york.jpg',
     senators: ['Chuck Schumer', 'Kirsten Gillibrand'],
     totalReps: 26
   },
@@ -293,7 +293,7 @@ const unitedStates = [
     _id: 'xlzqptycg33',
     populationApprox: '10,700,00-',
     governor: 'Roy Cooper',
-    flagPicturePath: '',
+    flagPicturePath: 'north-carolina',
     senators: ['Thom Tillis', 'Ted Budd'],
     totalReps: 14
   },
@@ -302,7 +302,7 @@ const unitedStates = [
     _id: 'xlzqptycg34',
     populationApprox: '780,000',
     governor: 'Doug Burgum',
-    flagPicturePath: '',
+    flagPicturePath: 'north-dakota.jpg',
     senators: ['John Hoeven', 'Kevin Cramer'],
     totalReps: 1
   },
@@ -311,7 +311,7 @@ const unitedStates = [
     _id: 'xlzqptycg35',
     populationApprox: '11,800,000',
     governor: 'Mike DeWine',
-    flagPicturePath: '',
+    flagPicturePath: 'ohio.jpg',
     senators: ['Sherrod Brown', 'J.D. Vance'],
     totalReps: 15
   },
@@ -320,7 +320,7 @@ const unitedStates = [
     _id: 'xlzqptycg36',
     populationApprox: '4,020,000',
     governor: 'Kevin Stitt',
-    flagPicturePath: '',
+    flagPicturePath: 'oklahoma.jpg',
     senators: ['James Lankford', 'Markwayne Mullin'],
     totalReps: 5
   },
@@ -329,7 +329,7 @@ const unitedStates = [
     _id: 'xlzqptycg37',
     populationApprox: '4,250,000',
     governor: 'Tina Kotek',
-    flagPicturePath: '',
+    flagPicturePath: 'oregon.jpg',
     senators: ['Ron Wyden', 'Jeff Merkley'],
     totalReps: 6
   },
@@ -338,7 +338,7 @@ const unitedStates = [
     _id: 'xlzqptycg38',
     populationApprox: '13,000,000',
     governor: 'Josh Shapiro',
-    flagPicturePath: '',
+    flagPicturePath: 'pennsylvania.jpg',
     senators: ['Bob Casey Jr.', 'John Fetterman'],
     totalReps: 17
   },
@@ -347,7 +347,7 @@ const unitedStates = [
     _id: 'xlzqptycg39',
     populationApprox: '1,100,000',
     governor: 'Dan McKee',
-    flagPicturePath: '',
+    flagPicturePath: 'rhode-island.jpg',
     senators: ['Jack Reed', 'Sheldon Whitehouse'],
     totalReps: 2
   },
@@ -356,7 +356,7 @@ const unitedStates = [
     _id: 'xlzqptycg40',
     populationApprox: '5,284,000',
     governor: 'Henry McMaster',
-    flagPicturePath: '',
+    flagPicturePath: 'south-carolina.jpg',
     senators: ['Lindsey Graham', 'Tim Scott'],
     totalReps: 7
   },
@@ -365,7 +365,7 @@ const unitedStates = [
     _id: 'xlzqptycg41',
     populationApprox: '910,000',
     governor: 'Kristi Noem',
-    flagPicturePath: '',
+    flagPicturePath: 'south-dakota.jpg',
     senators: ['John Thune', 'Mike Rounds'],
     totalReps: 1
   },
@@ -374,7 +374,7 @@ const unitedStates = [
     _id: 'xlzqptycg42',
     populationApprox: '6,915,000',
     governor: 'Bill Lee',
-    flagPicturePath: '',
+    flagPicturePath: 'tennessee.jpg',
     senators: ['Marsha Blackburn', 'Bill Hagerty'],
     totalReps: 9
   },
@@ -383,7 +383,7 @@ const unitedStates = [
     _id: 'xlzqptycg43',
     populationApprox: '29,300,000',
     governor: 'Greg Abbott',
-    flagPicturePath: '',
+    flagPicturePath: 'texas.jpg',
     senators: ['John Cornyn', 'Ted Cruz'],
     totalReps: 38
   },
@@ -392,7 +392,7 @@ const unitedStates = [
     _id: 'xlzqptycg44',
     populationApprox: '3,300,000',
     governor: 'Spencer Cox',
-    flagPicturePath: '',
+    flagPicturePath: 'utah.jpg',
     senators: ['Mike Lee', 'Mitt Romney'],
     totalReps: 4
   },
@@ -401,7 +401,7 @@ const unitedStates = [
     _id: 'xlzqptycg45',
     populationApprox: '650,000',
     governor: 'Phil Scott',
-    flagPicturePath: '',
+    flagPicturePath: 'vermont.jpg',
     senators: ['Bernie Sander', 'Peter Welch'],
     totalReps: 1
   },
@@ -410,7 +410,7 @@ const unitedStates = [
     _id: 'xlzqptycg46',
     populationApprox: '8,700,000',
     governor: 'Glenn Youngkin',
-    flagPicturePath: '',
+    flagPicturePath: 'virginia.jpg',
     senators: ['Mark Warner', 'Tim Kaine'],
     totalReps: 11
   },
@@ -419,7 +419,7 @@ const unitedStates = [
     _id: 'xlzqptycg47',
     populationApprox: '7,800,000',
     governor: 'Jay Inslee',
-    flagPicturePath: '',
+    flagPicturePath: 'washington.jpg',
     senators: ['Patty Murray', 'Maria Cantwell'],
     totalReps: 10
   },
@@ -428,7 +428,7 @@ const unitedStates = [
     _id: 'xlzqptycg48',
     populationApprox: '1,794,000',
     governor: 'Jim Justice',
-    flagPicturePath: '',
+    flagPicturePath: 'west-virginia.jpg',
     senators: ['Joe Manchin', 'Shelley Moore Capito'],
     totalReps: 2
   },
@@ -437,7 +437,7 @@ const unitedStates = [
     _id: 'xlzqptycg49',
     populationApprox: '5,900,000',
     governor: 'Tony Evers',
-    flagPicturePath: '',
+    flagPicturePath: 'wisconsin.jpg',
     senators: ['Ron Johnson', 'Tammy Baldwin'],
     totalReps: 8
   },
@@ -446,7 +446,7 @@ const unitedStates = [
     _id: 'xlzqptycg50',
     populationApprox: '577,000',
     governor: 'Mark Gordon',
-    flagPicturePath: '',
+    flagPicturePath: 'wyoming.jpg',
     senators: ['John Barrasso', 'Cynthia Lummis'],
     totalReps: 1
   },
