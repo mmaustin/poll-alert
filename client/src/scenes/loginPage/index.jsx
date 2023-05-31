@@ -1,12 +1,16 @@
 import { Box } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import unitedStates from "statesFolder";
+//import { useSelector } from "react-redux";
 
 
 const LoginPage = () => {
 
-  const states = useSelector(state => state.unitedStates);
-  const st = states.filter(s => s._id === 'xlzqptycg10');
-  const {flagPicturePath} = st[0];
+  const navigate = useNavigate();
+
+  //const states = useSelector(state => state.unitedStates);
+  const st = unitedStates.filter(s => s._id === 'xlzqptycg10');
+  const {flagPicturePath, _id} = st[0];
 
   return (
     <>
@@ -20,6 +24,7 @@ const LoginPage = () => {
                 src={`http://localhost:5001/assets/${flagPicturePath}`}
             />        
       </Box>
+      <button onClick={() => navigate(`/state/${_id}`)} >State Page</button>
     </>
   )
 }

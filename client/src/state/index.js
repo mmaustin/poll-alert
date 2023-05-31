@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import UnitedStates from 'statesFolder/index';
+//import UnitedStates from 'statesFolder/index';
 
 const initialState = {
     mode: 'light',
     user: null,
     token: null,
     observances: [],
-    unitedStates: UnitedStates
+    // unitedStates: UnitedStates
 };
 
 export const authSlice = createSlice({
