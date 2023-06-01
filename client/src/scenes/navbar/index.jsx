@@ -1,8 +1,8 @@
 //my navbar: Poll Alert: Help Us Ensure Fair Elections, dark mode, home, about, state page menu dropdown, logout
 import { useState } from "react";
 import { InputLabel, FormHelperText, Box, Button, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery} from "@mui/material";
-import { Search, Message, DarkMode, LightMode, Notifications, Help, Menu, Close, WhereToVote, HowToVoteTwoTone } from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
+import { DarkMode, LightMode, Menu, Close, WhereToVote, HowToVoteTwoTone } from "@mui/icons-material";
+import { useDispatch} from "react-redux";
 import { setMode, setLogout} from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween";
@@ -40,7 +40,7 @@ const Navbar = () => {
           onClick={()=> navigate('/')}
           sx={{
             "&:hoover": {
-              color: 'red',
+              color: primaryLight,
               cursor: "pointer",
             },
           }}
