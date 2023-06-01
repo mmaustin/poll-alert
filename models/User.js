@@ -26,7 +26,7 @@ const UserSchema = mongoose.Schema({
     },
     picturePath: {
         type: String,
-        default: '',
+        default: 'default-img.jpg',
     },
     stateId: {
         type: String,

@@ -26,7 +26,6 @@ const ObservanceSchema = mongoose.Schema(
         userPicturePath: {
           type: String,
           required: true,
-          default: ''
         },
         pollingPlace: {
           type: String,
