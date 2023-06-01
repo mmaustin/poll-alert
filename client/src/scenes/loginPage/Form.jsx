@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
-
 import {
     Box,
     Button,
     TextField,
     useMediaQuery,
     Typography,
-    useTheme
+    useTheme,
+    FormControl,
+    MenuItem,
+    FormHelperText,
+    InputLabel,
+    Select
 } from "@mui/material";
 import EditOutLinedIcon from '@mui/icons-material/EditOutlined';
 import { Formik } from "formik";
@@ -16,40 +20,48 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLogin } from "state";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
+import unitedStates from "statesFolder";
 
-const registerSchema = yup.object().shape({
-    firstName: yup.string().required("required"),
-    lastName: yup.string().required("required"),
-    email: yup.string().email("invalid email").required("required"),
-    password: yup.string().required("required"),
-    location: yup.string().required("required"),
-    occupation: yup.string().required("required"),
-    picture: yup.string().required("required"),
-});
+  const testSchema = yup.object().shape({
+    stateId: yup.string().required("required")
+  })
 
-const loginSchema = yup.object().shape({
-    email: yup.string().email("invalid email").required("required"),
-    password: yup.string().required("required"),    
-})
+// const registerSchema = yup.object().shape({
+//     firstName: yup.string().required("required"),
+//     lastName: yup.string().required("required"),
+//     email: yup.string().email("invalid email").required("required"),
+//     password: yup.string().required("required"),
+//     location: yup.string().required("required"),
+//     occupation: yup.string().required("required"),
+//     picture: yup.string().required("required"),
+// });
 
-const initialValuesRegister = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    location: "",
-    occupation: "",
-    picture: "",
-}
+// const loginSchema = yup.object().shape({
+//     email: yup.string().email("invalid email").required("required"),
+//     password: yup.string().required("required"),    
+// })
 
-const initialValuesLogin = {
-    email: "",
-    password: ""
-}
+// const initialValuesRegister = {
+//     firstName: "",
+//     lastName: "",
+//     email: "",
+//     password: "",
+//     location: "",
+//     occupation: "",
+//     picture: "",
+// }
+
+// const initialValuesLogin = {
+//     email: "",
+//     password: ""
+// }
 
 
 const Form = () => {
 
+    const [state, setState] = useState('');
+    const handleStateChange = setState(e => e.target.value);
+        
     const [pageType, setPageType] = useState('login');
     const {palette} = useTheme();
     const dispatch = useDispatch();
@@ -59,69 +71,70 @@ const Form = () => {
     const isRegister = pageType === 'register';
     const user = useSelector(state => state.user);
 
-    const register = async(values, onSubmitProps) => {
-        //allows us to send form info with image
-        const formData = new FormData();
-        for(let value in values){
-            formData.append(value, values[value]);
-        }
-        formData.append("picturePath", values.picture.name);
+    // const register = async(values, onSubmitProps) => {
+    //     //allows us to send form info with image
+    //     const formData = new FormData();
+    //     for(let value in values){
+    //         formData.append(value, values[value]);
+    //     }
+    //     formData.append("picturePath", values.picture.name);
 
-        const savedUserResponse = await fetch(
-            "http://localhost:5001/auth/register",
-            {
-                method: "POST",
-                body: formData,
-            }
-        );
-        const savedUser = await savedUserResponse.json();
-        onSubmitProps.resetForm();
+    //     const savedUserResponse = await fetch(
+    //         "http://localhost:5001/auth/register",
+    //         {
+    //             method: "POST",
+    //             body: formData,
+    //         }
+    //     );
+    //     const savedUser = await savedUserResponse.json();
+    //     onSubmitProps.resetForm();
 
-        if (savedUser){
-            setPageType("login");
-        }
-    };
+    //     if (savedUser){
+    //         setPageType("login");
+    //     }
+    // };
 
-    const login = async(values, onSubmitProps) => {
-        const loggedInResponse = await fetch(
-            "http://localhost:5001/auth/login",
-            {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(values),
-            }
-        );
-        const loggedIn = await loggedInResponse.json();
-        onSubmitProps.resetForm();
+    // const login = async(values, onSubmitProps) => {
+    //     const loggedInResponse = await fetch(
+    //         "http://localhost:5001/auth/login",
+    //         {
+    //             method: "POST",
+    //             headers: {"Content-Type": "application/json"},
+    //             body: JSON.stringify(values),
+    //         }
+    //     );
+    //     const loggedIn = await loggedInResponse.json();
+    //     onSubmitProps.resetForm();
 
-        if(loggedIn){
-            dispatch(
-                setLogin({
-                    user: loggedIn.user,
-                    token: loggedIn.token,
-                })
-            );
-        }
-    }
+    //     if(loggedIn){
+    //         dispatch(
+    //             setLogin({
+    //                 user: loggedIn.user,
+    //                 token: loggedIn.token,
+    //             })
+    //         );
+    //     }
+    // }
 
     const handleFormSubmit = async (values, onSubmitProps ) => {
-        if(isLogin) await login(values, onSubmitProps);
-        if(isRegister) await register(values, onSubmitProps);
+      console.log(state);
+        // if(isLogin) await login(values, onSubmitProps);
+        // if(isRegister) await register(values, onSubmitProps);
     }
 
-    useEffect(() => {
-        if (user) {
-          setTimeout(() => {
-            navigate('/home')
-          }, 1000)
-        }
-    }, [user, navigate])
+    // useEffect(() => {
+    //     if (user) {
+    //       setTimeout(() => {
+    //         navigate('/home')
+    //       }, 1000)
+    //     }
+    // }, [user, navigate])
 
   return (
     <Formik
         onSubmit={handleFormSubmit}
-        initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
-        validationSchema={isLogin ? loginSchema : registerSchema}
+        // initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
+        // validationSchema={isLogin ? loginSchema : registerSchema}
     >
         {({
             values,
@@ -134,7 +147,26 @@ const Form = () => {
             resetForm,
         }) => (
             <form onSubmit={handleSubmit}>
-                <Box
+              <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value={state}
+                  label="State"
+                  onChange={handleChange}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  {unitedStates.map(state => {
+                    return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
+                  })}
+                </Select>
+                <FormHelperText>Select A State</FormHelperText>
+              </FormControl>
+              <button type="submit"></button>
+                {/* <Box
                     display="grid"
                     gap="30px"
                     gridTemplateColumns="repeat(4, minmax(0, 1fr))"
@@ -275,7 +307,7 @@ const Form = () => {
                             : "Already have an account? Login Here."
                         }
                     </Typography>
-                </Box>
+                </Box> */}
             </form>
         )}
     </Formik>
