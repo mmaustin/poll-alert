@@ -60,6 +60,7 @@ const initialValuesLogin = {
 const Form = () => {
    
     const [pageType, setPageType] = useState('login');
+    const [displayError, setDisplayError] = useState(false);
     const {palette} = useTheme();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -68,14 +69,28 @@ const Form = () => {
     const isRegister = pageType === 'register';
     const user = useSelector(state => state.user);
 
+    const displayToFalse = () => {
+        setTimeout(()=>{
+            setDisplayError(false);
+        }, 5000)
+    }
+
     const register = async(values, onSubmitProps) => {
+        const {firstName, lastName, email, password, pollingPlace, congressDist, stateId} = values;
+        if(!firstName || !lastName || !email || !password || !pollingPlace || !congressDist || !stateId){
+            setDisplayError(true);
+            displayToFalse();
+            return
+        }
       //console.log(values);
         //allows us to send form info with image
         const formData = new FormData();
         for(let value in values){
             formData.append(value, values[value]);
         }
-        formData.append("picturePath", values.picture.name);
+        if(values.picture?.name){
+            formData.append("picturePath", values.picture.name);
+        }
         const savedUserResponse = await fetch(
             "http://localhost:5001/auth/register",
             {
@@ -132,7 +147,7 @@ const Form = () => {
     <Formik
         onSubmit={handleFormSubmit}
         initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
-        //validationSchema={isLogin ? loginSchema : registerSchema}
+        validationSchema={isLogin ? loginSchema : undefined}
     >
         {({
             values,
@@ -145,6 +160,9 @@ const Form = () => {
             resetForm,
         }) => (
             <form onSubmit={handleSubmit}>
+                {displayError && (
+                    <p>Please Fill Out All Of The Fields</p>
+                )}
                 <Box
                     display="grid"
                     gap="30px"
@@ -157,28 +175,20 @@ const Form = () => {
                         <>
                           <div>
                             {/* <label htmlFor="stateId">Select Your State</label>                */}
-                            <TextField
-                            //   as='select'
-                            //   id="stateId"
-                            //   name="stateId"
-                            //   value={values.stateId}
-                            //   onChange={handleChange}
-                                select
-                                label='Select State'
-                                name="stateId"
-                                value={values.stateId}
-                                onChange={handleChange}
+                            <Field
+                              as='select'
+                              id="stateId"
+                              name="stateId"
                             >
-                              {/* <> */}
-                              {/* <option value="">
-                                
-                              </option> */}
-                                <MenuItem value=''></MenuItem>
-                              {/* </> */}
+                              <>
+                                <option value="">
+                                    
+                                </option>
+                              </>
                               {stateOptions.map(state => {
-                                return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
+                                return <option key={state._id} value={state._id}>{state.name}</option>
                               })}
-                            </TextField>
+                            </Field>
                           </div>                    
                             <TextField
                                 label="First Name"
