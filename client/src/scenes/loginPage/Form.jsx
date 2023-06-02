@@ -23,16 +23,16 @@ import FlexBetween from "components/FlexBetween";
 import unitedStates from "statesFolder";
 
 
-const registerSchema = yup.object().shape({
-    firstName: yup.string().required("required"),
-    lastName: yup.string().required("required"),
-    email: yup.string().email("invalid email").required("required"),
-    password: yup.string().required("required"),
-    pollingPlace: yup.string().required("required"),
-    congressDist: yup.string().required("required"),
-    picturePath: yup.string().required("required"),
-    stateId: yup.string().required("required"),
-});
+// const registerSchema = yup.object().shape({
+//     firstName: yup.string().required("required"),
+//     lastName: yup.string().required("required"),
+//     email: yup.string().email("invalid email").required("required"),
+//     password: yup.string().required("required"),
+//     pollingPlace: yup.string().required("required"),
+//     congressDist: yup.string().required("required"),
+//     picturePath: yup.string().required("required"),
+//     stateId: yup.string().required("required"),
+// });
 
 const loginSchema = yup.object().shape({
     email: yup.string().email("invalid email").required("required"),
@@ -61,6 +61,7 @@ const Form = () => {
    
     const [pageType, setPageType] = useState('login');
     const [displayError, setDisplayError] = useState(false);
+    const [noUserOrPass, setNoUserOrPass] = useState('');
     const {palette} = useTheme();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -73,6 +74,13 @@ const Form = () => {
         setTimeout(()=>{
             setDisplayError(false);
         }, 5000)
+    };
+
+    const checkUserOrPass = (msg) => {
+        setNoUserOrPass(msg);
+        setTimeout(() => {
+            setNoUserOrPass('');
+        }, 5000)
     }
 
     const register = async(values, onSubmitProps) => {
@@ -82,7 +90,6 @@ const Form = () => {
             displayToFalse();
             return
         }
-      //console.log(values);
         //allows us to send form info with image
         const formData = new FormData();
         for(let value in values){
@@ -107,7 +114,6 @@ const Form = () => {
     };
 
     const login = async(values, onSubmitProps) => {
-      //console.log(values);
         const loggedInResponse = await fetch(
             "http://localhost:5001/auth/login",
             {
@@ -119,18 +125,20 @@ const Form = () => {
         const loggedIn = await loggedInResponse.json();
         onSubmitProps.resetForm();
 
-        if(loggedIn){
+        if(!loggedIn.msg){
             dispatch(
                 setLogin({
                     user: loggedIn.user,
                     token: loggedIn.token,
                 })
             );
+        } else {
+            let msg = `${loggedIn.msg}. Please try again.`
+            checkUserOrPass(msg);
         }
     }
 
     const handleFormSubmit = async (values, onSubmitProps ) => {
-      console.log(values);
         if(isLogin) await login(values, onSubmitProps);
         if(isRegister) await register(values, onSubmitProps);
     }
@@ -163,6 +171,9 @@ const Form = () => {
                 {displayError && (
                     <p>Please Fill Out All Of The Fields</p>
                 )}
+                {noUserOrPass && (
+                    <p>{noUserOrPass}</p>
+                )}
                 <Box
                     display="grid"
                     gap="30px"
@@ -174,7 +185,6 @@ const Form = () => {
                     {isRegister && (
                         <>
                           <div>
-                            {/* <label htmlFor="stateId">Select Your State</label>                */}
                             <Field
                               as='select'
                               id="stateId"
@@ -289,7 +299,6 @@ const Form = () => {
                 </Box>
                 <Box>
                     <Button
-                        // onClick={e=> console.log(values)}
                         fullWidth
                         type="submit"
                         sx={{
