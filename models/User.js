@@ -33,7 +33,7 @@ const UserSchema = mongoose.Schema({
         required: true,
     },
     congressDist: {
-        type: Number,
+        type: String,
         required: true,
     },
     pollingPlace: {

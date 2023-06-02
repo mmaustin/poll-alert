@@ -28,9 +28,9 @@ const registerSchema = yup.object().shape({
     lastName: yup.string().required("required"),
     email: yup.string().email("invalid email").required("required"),
     password: yup.string().required("required"),
-    location: yup.string().required("required"),
-    occupation: yup.string().required("required"),
-    picture: yup.string().required("required"),
+    pollingPlace: yup.string().required("required"),
+    congressDist: yup.string().required("required"),
+    picturePath: yup.string().required("required"),
     stateId: yup.string().required("required"),
 });
 
@@ -46,9 +46,9 @@ const initialValuesRegister = {
     lastName: "",
     email: "",
     password: "",
-    location: "",
-    occupation: "",
-    picture: "",
+    pollingPlace: "",
+    congressDist: "",
+    picturePath: "",
     stateId: "",
 }
 
@@ -69,50 +69,49 @@ const Form = () => {
     const user = useSelector(state => state.user);
 
     const register = async(values, onSubmitProps) => {
-      console.log(values);
+      //console.log(values);
         //allows us to send form info with image
-        // const formData = new FormData();
-        // for(let value in values){
-        //     formData.append(value, values[value]);
-        // }
-        // formData.append("picturePath", values.picture.name);
-        // console.log(formData);
-        // const savedUserResponse = await fetch(
-        //     "http://localhost:5001/auth/register",
-        //     {
-        //         method: "POST",
-        //         body: formData,
-        //     }
-        // );
-        // const savedUser = await savedUserResponse.json();
-        // onSubmitProps.resetForm();
+        const formData = new FormData();
+        for(let value in values){
+            formData.append(value, values[value]);
+        }
+        formData.append("picturePath", values.picture.name);
+        const savedUserResponse = await fetch(
+            "http://localhost:5001/auth/register",
+            {
+                method: "POST",
+                body: formData,
+            }
+        );
+        const savedUser = await savedUserResponse.json();
+        onSubmitProps.resetForm();
 
-        // if (savedUser){
-        //     setPageType("login");
-        // }
+        if (savedUser){
+            setPageType("login");
+        }
     };
 
     const login = async(values, onSubmitProps) => {
-      console.log(values);
-        // const loggedInResponse = await fetch(
-        //     "http://localhost:5001/auth/login",
-        //     {
-        //         method: "POST",
-        //         headers: {"Content-Type": "application/json"},
-        //         body: JSON.stringify(values),
-        //     }
-        // );
-        // const loggedIn = await loggedInResponse.json();
-        // onSubmitProps.resetForm();
+      //console.log(values);
+        const loggedInResponse = await fetch(
+            "http://localhost:5001/auth/login",
+            {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(values),
+            }
+        );
+        const loggedIn = await loggedInResponse.json();
+        onSubmitProps.resetForm();
 
-        // if(loggedIn){
-        //     dispatch(
-        //         setLogin({
-        //             user: loggedIn.user,
-        //             token: loggedIn.token,
-        //         })
-        //     );
-        // }
+        if(loggedIn){
+            dispatch(
+                setLogin({
+                    user: loggedIn.user,
+                    token: loggedIn.token,
+                })
+            );
+        }
     }
 
     const handleFormSubmit = async (values, onSubmitProps ) => {
@@ -120,9 +119,6 @@ const Form = () => {
         if(isLogin) await login(values, onSubmitProps);
         if(isRegister) await register(values, onSubmitProps);
     }
-    // const handleFormSubmit = () => {
-    //   console.log(stateId);
-    // }
 
     useEffect(() => {
         if (user) {
@@ -136,7 +132,7 @@ const Form = () => {
     <Formik
         onSubmit={handleFormSubmit}
         initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
-        validationSchema={isLogin ? loginSchema : registerSchema}
+        //validationSchema={isLogin ? loginSchema : registerSchema}
     >
         {({
             values,
@@ -149,27 +145,6 @@ const Form = () => {
             resetForm,
         }) => (
             <form onSubmit={handleSubmit}>
-              {/* <FormControl sx={{ m: 1, minWidth: 120 }}> */}
-                {/* <InputLabel id="demo-simple-select-helper-label">State</InputLabel> */}
-              <div>
-                <label htmlFor="stateId">Select A State</label>               
-                <Field
-                  as='select'
-                  id="stateId"
-                  name="stateId"
-                >
-                  <>
-                  <option value="">
-                    None
-                  </option>
-                  </>
-                  {stateOptions.map(state => {
-                    return <option key={state._id} value={state._id}>{state.name}</option>
-                  })}
-                </Field>
-              </div>
-                {/* <FormHelperText>Select A State</FormHelperText>
-              </FormControl> */}
                 <Box
                     display="grid"
                     gap="30px"
@@ -180,6 +155,31 @@ const Form = () => {
                 >
                     {isRegister && (
                         <>
+                          <div>
+                            {/* <label htmlFor="stateId">Select Your State</label>                */}
+                            <TextField
+                            //   as='select'
+                            //   id="stateId"
+                            //   name="stateId"
+                            //   value={values.stateId}
+                            //   onChange={handleChange}
+                                select
+                                label='Select State'
+                                name="stateId"
+                                value={values.stateId}
+                                onChange={handleChange}
+                            >
+                              {/* <> */}
+                              {/* <option value="">
+                                
+                              </option> */}
+                                <MenuItem value=''></MenuItem>
+                              {/* </> */}
+                              {stateOptions.map(state => {
+                                return <MenuItem key={state._id} value={state._id}>{state.name}</MenuItem>
+                              })}
+                            </TextField>
+                          </div>                    
                             <TextField
                                 label="First Name"
                                 onBlur={handleBlur}
@@ -201,23 +201,23 @@ const Form = () => {
                                 sx={{gridColumn: "span 2"}}
                             />
                             <TextField
-                                label="Location"
+                                label="Congressional District"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.location}
-                                name="location"
-                                error={Boolean(touched.location) && Boolean(errors.location)}
-                                helperText={touched.location && errors.location}
+                                value={values.congressDist}
+                                name="congressDist"
+                                error={Boolean(touched.congressDist) && Boolean(errors.congressDist)}
+                                helperText={touched.congressDist && errors.congressDist}
                                 sx={{gridColumn: "span 4"}}
                             />
                             <TextField
-                                label="Occupation"
+                                label="Polling Place"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.occupation}
-                                name="occupation"
-                                error={Boolean(touched.occupation) && Boolean(errors.occupation)}
-                                helperText={touched.occupation && errors.occupation}
+                                value={values.pollingPlace}
+                                name="pollingPlace"
+                                error={Boolean(touched.pollingPlace) && Boolean(errors.pollingPlace)}
+                                helperText={touched.pollingPlace && errors.pollingPlace}
                                 sx={{gridColumn: "span 4"}}
                             />
                             <Box
@@ -279,10 +279,7 @@ const Form = () => {
                 </Box>
                 <Box>
                     <Button
-                        onClick={e => {
-                          e.preventDefault();
-                          console.log({values});
-                        }}
+                        // onClick={e=> console.log(values)}
                         fullWidth
                         type="submit"
                         sx={{
