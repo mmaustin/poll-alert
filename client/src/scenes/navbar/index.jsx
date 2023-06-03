@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { InputLabel, FormHelperText, Box, Button, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery} from "@mui/material";
 import { DarkMode, LightMode, Menu, Close, WhereToVote, HowToVoteTwoTone } from "@mui/icons-material";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { setMode, setLogout} from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween";
@@ -19,6 +19,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+  const user = useSelector(state => state.user);
 
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;
@@ -27,7 +28,7 @@ const Navbar = () => {
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
-  const fullName = `McCray Austin`;
+  const fullName = ` ${user.firstName} ${user.lastName}`;
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
