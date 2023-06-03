@@ -1,7 +1,9 @@
 import { Box } from "@mui/material";
+import UserImage from "components/UserImageWidget";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Navbar from "scenes/navbar";
+
 
 
 const HomePage = () => {
@@ -12,15 +14,8 @@ const HomePage = () => {
   return (
     <Box>
       <Navbar />
-      <Box width='80px' height='80px'>
-            <img
-                style={{objectFit: "cover", borderRadius: "50%"}}
-                width='80px'
-                height='80px'
-                alt="user"
-                src={`http://localhost:5001/assets/${picturePath}`}
-            />
-        </Box>
+      <UserImage image='us-flag.jpeg' />
+      <UserImage image={picturePath} />
         <button onClick={() => navigate(`/user/${_id}`)} >Your Page</button>
     </Box>
   )
