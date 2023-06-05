@@ -34,7 +34,33 @@ const MyObservancesWidget = () => {
   }
 
   return (
-    <div>MyObservancesWidget</div>
+    <WidgetWrapper>
+      <FlexBetween gap='1.5rem'>
+        <UserImage image={picturePath} />
+        <InputBase
+          placeholder="Please Describe What You See"
+          value={observance}
+          onChange={(e)=> setObservance(e.target.value)}
+          sx={{
+            width: "100%",
+            backgroundColor: palette.neutral.light,
+            borderRadius: "2rem",
+            padding: "1rem 2rem"
+          }}
+        />
+        <Button
+          disabled={!observance}
+          onClick={createObservance}
+          sx={{
+            color: palette.background.alt,
+            backgroundColor: palette.primary.main,
+            borderRadius: "3rem"
+          }}
+        >
+          Observed
+        </Button>        
+      </FlexBetween>      
+    </WidgetWrapper>
   )
 }
 export default MyObservancesWidget;
