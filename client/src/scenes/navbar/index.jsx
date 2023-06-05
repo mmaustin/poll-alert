@@ -87,7 +87,7 @@ const Navbar = () => {
             </Select>
             <FormHelperText>Select A State</FormHelperText>
           </FormControl>
-          {state && <Button size='small' variant='contained'>State Page</Button>}
+          {state && <Button onClick={() => navigate(`/state/${state}`)} size='small' variant='contained'>State Page</Button>}
           {/* </Button> */}
           <FormControl variant="standard" value={fullName}>
               <Select

@@ -7,11 +7,10 @@ const StatePage = () => {
 
   const {stateId} = useParams();
   const st = unitedStates.filter(s => s._id === stateId);
-  console.log(st);
-  //const {flagPicturePath} = st[0];  
+  const {flagPicturePath, name} = st[0];  
 
   return (
-    <div>StatePage</div>
+    <div>{name}</div>
   )
 }
 export default StatePage
