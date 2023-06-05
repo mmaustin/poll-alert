@@ -1,4 +1,4 @@
-import { WhereToVoteIcon } from '@mui/icons-material';
+import { WhereToVote, LocationOnOutlined } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import unitedStates from 'statesFolder';
 
@@ -6,7 +6,7 @@ import { Box, Typography, Divider, useTheme } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from 'components/WidgetWrapper';
 import UserImage from 'components/UserImageWidget';
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -17,7 +17,7 @@ const UserWidget = () => {
   const user = useSelector(state => state.user);
   const {palette} = useTheme();
   const navigate = useNavigate();
-  const token = useSelector(state => state.token);
+  //const token = useSelector(state => state.token);
   const dark = palette.neutral.dark;
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
@@ -56,7 +56,22 @@ const UserWidget = () => {
             <Typography variant='h6' >STATE: {homeState.name}</Typography>
           </Box>
         </FlexBetween>
-      </FlexBetween>      
+      </FlexBetween>
+      
+        <Divider/>
+
+        {/* second row */}
+        <Box p="1rem 0">
+          <Box display="flex" alignItems="center" gap="1rem" mb="0.5">
+            <LocationOnOutlined fontSize="large" sx={{color: main}}/>
+            <Typography variant='subtitle2' color='medium'>Congressional District: {congressDist}</Typography>
+          </Box>
+          <Box display="flex" alignItems="center" gap="1rem">
+            <WhereToVote fontSize="large" sx={{color: main}}/>
+            <Typography variant='subtitle2' color='medium'>Polling Place: {pollingPlace}</Typography>
+          </Box>
+        </Box>      
+
     </WidgetWrapper>
   )
 }
