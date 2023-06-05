@@ -23,7 +23,7 @@ const UserWidget = () => {
   const main = palette.neutral.main;
   const homeState = unitedStates.find(s => s._id === user.stateId);
   
-  const {firstName, lastName, congressDist, pollingPlace} = user;
+  const {firstName, lastName, congressDist, pollingPlace, picturePath, _id} = user;
   const fullName = `${firstName} ${lastName}`;
 
   if(!user){
@@ -31,10 +31,33 @@ const UserWidget = () => {
   }
 
   return (
-    <>
-      <div>UserWidget</div>
-      {homeState.name}
-    </>
+    <WidgetWrapper>
+      <FlexBetween
+        gap="0.5rem"
+        pb="1.1rem"
+        onClick={() => navigate(`/profile/${_id}`)}      
+      >
+        <FlexBetween gap="1rem">
+          <UserImage image={picturePath}/>
+          <Box>
+            <Typography
+              variant="h4"
+              color={dark}
+              fontWeight="500"
+              sx={{
+                "&:hover": {
+                  color: palette.primary.light,
+                  cursor: "pointer"
+                }
+              }}
+            >
+              {fullName}
+            </Typography>
+            <Typography variant='h6' >STATE: {homeState.name}</Typography>
+          </Box>
+        </FlexBetween>
+      </FlexBetween>      
+    </WidgetWrapper>
   )
 }
 export default UserWidget;
