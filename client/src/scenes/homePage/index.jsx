@@ -1,7 +1,4 @@
-import { Box } from "@mui/material";
-import UserImage from "components/UserImageWidget";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Box, useMediaQuery } from "@mui/material";
 import Navbar from "scenes/navbar";
 import UserWidget from "scenes/widgets/UserWidget";
 
@@ -10,15 +7,22 @@ import UserWidget from "scenes/widgets/UserWidget";
 
 const HomePage = () => {
 
-  const navigate = useNavigate();
-  const {_id, picturePath} = useSelector(state => state.user);
+  const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
   return (
     <Box>
       <Navbar />
-      <Box >
-        <UserWidget/>
-      </Box>
+      <Box
+        width="100%"
+        padding="2rem 6%"
+        display={isNonMobileScreens ? "flex" : "block"}
+        gap="0.5rem"
+        justifyContent="space-between"
+      >
+        <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
+          <UserWidget />
+        </Box>
+      </Box>  
     </Box>
   )
 }
