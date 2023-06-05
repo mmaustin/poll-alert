@@ -47,7 +47,7 @@ const upload =  multer({storage});
 app.post('/auth/register', upload.single('picture'), register);
 
 //An observance does not have a picture other than the user picture
-app.post('/observances', verifyToken, createObservance);
+//app.post('/observances', verifyToken, createObservance);
 
 // //Routes not dependent on files/multer
 app.post('/auth/login', login);

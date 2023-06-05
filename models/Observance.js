@@ -19,7 +19,7 @@ const ObservanceSchema = mongoose.Schema(
           required: true,
           maxLength: 75
         },
-        stateId: {
+        userStateId: {
           type: String,
           required: true,
         },

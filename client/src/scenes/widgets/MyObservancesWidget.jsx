@@ -7,9 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getObservances } from "state";
 
 
-const MyObservancesWidget = () => {
+const MyObservancesWidget = ({userId, picturePath}) => {
 
-  const {_id, picturePath} = useSelector(state => state.user);
+  //const {user} = useSelector(state => state.user);
   const token = useSelector(state => state.token);
   const [observance, setObservance] = useState('');
   const dispatch = useDispatch();
@@ -18,18 +18,27 @@ const MyObservancesWidget = () => {
   const mediumMain = palette.neutral.mediumMain;
   const medium = palette.neutral.medium;
 
-  const createObservance = async() => {
-    const formData = new FormData();
-    formData.append("userId", _id);
-    formData.append("description", observance);
+  const handleObservance = async() => {
+    // const formData = new FormData();
+    // formData.append("userId", userId);
+    // formData.append("description", observance);
 
     const response = await fetch(`http://localhost:5001/observances`, {
       method: "POST",
-      headers: {Authorization: `Bearer ${token}`},
-      body: formData,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: userId,
+        description: observance,
+      }),
     });
     const observances = await response.json();
-    dispatch(getObservances({observances}));
+    console.log(observances);
+    if(!observances.message){
+      dispatch(getObservances({observances}));
+    }
     setObservance("")    
   }
 
@@ -50,7 +59,7 @@ const MyObservancesWidget = () => {
         />
         <Button
           disabled={!observance}
-          onClick={createObservance}
+          onClick={handleObservance}
           sx={{
             color: palette.background.alt,
             backgroundColor: palette.primary.main,
