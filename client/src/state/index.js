@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import getStoredState from "redux-persist/es/getStoredState";
 
 const initialState = {
     mode: 'light',
@@ -22,6 +23,10 @@ export const authSlice = createSlice({
             state.user = null;
             state.token = null;
         },
+        updateUser: (state, action) => {
+            state.user = action.payload.user;
+            state.token = action.payload.token;
+        },
         getObservances: (state, action)=>{
             state.observances = action.payload.observances;
         },
@@ -43,5 +48,5 @@ export const authSlice = createSlice({
     }
 })
 
-export const {setMode, setLogin, setLogout, getObservances, getObservance, getStateObservances} = authSlice.actions;
+export const {setMode, setLogin, setLogout, updateUser, getObservances, getObservance, getStateObservances} = authSlice.actions;
 export default authSlice.reducer;

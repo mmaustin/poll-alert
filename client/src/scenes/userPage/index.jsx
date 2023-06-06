@@ -109,10 +109,10 @@ const UserPage = () => {
                                 label="Last Name"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.lastame}
+                                value={values.lastName}
                                 name="lastName"
-                                error={Boolean(touched.lastame) && Boolean(errors.lastame)}
-                                helperText={touched.lastame && errors.lastame}
+                                error={Boolean(touched.lastName) && Boolean(errors.lastName)}
+                                helperText={touched.lastName && errors.lastName}
                                 sx={{gridColumn: "span 2"}}
                             />
                             <TextField
