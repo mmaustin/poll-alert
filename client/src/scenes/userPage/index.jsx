@@ -19,7 +19,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 import unitedStates from "statesFolder";
-import { updateUser, setLogin } from "state";
+import { updateUser, setLogout } from "state";
+import Navbar from 'scenes/navbar'
 
 const UserPage = () => {
 
@@ -46,7 +47,6 @@ const UserPage = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
 
   const handleFormSubmit = async(values) => {
-    console.log(values);
     // const formData = new FormData();
     // for(let value in values){
     //     formData.append(value, values[value]);
@@ -65,7 +65,7 @@ const UserPage = () => {
             body: JSON.stringify({
               firstName: values.firstName,
               lastName: values.lastName,
-              picturePath: values.picturePath,
+              picturePath: values.picture?.name ? values.picture?.name : values.picturePath,
               pollingPlace: values.pollingPlace,
               congressDist: values.congressDist,
               stateId: values.stateId
@@ -74,17 +74,16 @@ const UserPage = () => {
     );
     const updatedUser = await updatedUserResponse.json();
     console.log(updatedUser);
-    // if(!updatedUser.error){
-    //   dispatch(
-    //     setLogin({
-    //       user: updateUser.user,
-    //       token: updateUser.token,
-    //     })
-    //   )
-    // }
+    if(!updatedUser.error){
+      dispatch(
+        setLogout()
+      )
+    }
   }
 
   return (
+    <>
+    <Navbar/>
     <Formik
         onSubmit={handleFormSubmit}
         initialValues={initialUpdateValues}
@@ -224,7 +223,8 @@ const UserPage = () => {
                 </Box>
             </form>
         )}
-    </Formik>    
+    </Formik>
+    </>  
   )
 }
 export default UserPage;

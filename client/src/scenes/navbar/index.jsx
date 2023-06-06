@@ -67,7 +67,7 @@ const Navbar = () => {
             )}
           </IconButton>
           <Button color='inherit'>About</Button>
-          <Button color='inherit' onClick={()=> navigate('/')}>Home</Button>
+          <Button color='inherit' onClick={()=> navigate('/home')}>Home</Button>
           {/* <Button color='inherit'> */}
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
