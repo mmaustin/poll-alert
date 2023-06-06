@@ -23,14 +23,35 @@ import unitedStates from "statesFolder";
 
 const UserPage = () => {
 
+  const stateOptions = unitedStates;
   const user = useSelector(state => state.user);
-  const {firstName, lastName, piturePath, stateId, congressDist, pollingPlace} = user;
+  const {firstName, lastName, picturePath, stateId, congressDist, pollingPlace} = user;
+
+  const initialUpdateValues = {
+    firstName: firstName,
+    lastName: lastName,
+    pollingPlace: pollingPlace,
+    congressDist: congressDist,
+    picturePath: picturePath,
+    stateId: stateId,
+  }  
+
+  
+  //const [displayError, setDisplayError] = useState(false);
+  //const [noUserOrPass, setNoUserOrPass] = useState('');
+  const {palette} = useTheme();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isNonMobile = useMediaQuery("(min-width: 600px)");
+
+  const handleFormSubmit = async(values) => {
+    console.log(values);
+  }
 
   return (
     <Formik
         onSubmit={handleFormSubmit}
-        initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
-        validationSchema={isLogin ? loginSchema : undefined}
+        initialValues={initialUpdateValues}
     >
         {({
             values,
@@ -43,12 +64,12 @@ const UserPage = () => {
             resetForm,
         }) => (
             <form onSubmit={handleSubmit}>
-                {displayError && (
+                {/* {displayError && (
                     <p>Please Fill Out All Of The Fields</p>
                 )}
                 {noUserOrPass && (
                     <p>{noUserOrPass}</p>
-                )}
+                )} */}
                 <Box
                     display="grid"
                     gap="30px"
@@ -57,7 +78,6 @@ const UserPage = () => {
                         "& > div": {gridColumn: isNonMobile ? undefined : "span 4"}
                     }}
                 >
-                    {isRegister && (
                         <>
                           <div>
                             <Field
@@ -149,7 +169,7 @@ const UserPage = () => {
                                 </Dropzone>
                             </Box>
                         </>
-                    )}                 
+                                    
                 </Box>
                 <Box>
                     <Button
@@ -163,7 +183,7 @@ const UserPage = () => {
                             "&:hover": {color: palette.primary.main},
                         }}
                     >
-                        {isLogin ? "LOGIN" : "REGISTER"}
+                        Update User Information
                     </Button>
                 </Box>
             </form>
