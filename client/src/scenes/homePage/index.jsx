@@ -7,7 +7,6 @@ import UserWidget from "scenes/widgets/UserWidget";
 const HomePage = () => {
 
   const {_id, picturePath} = useSelector(state => state.user)
-  console.log(_id, picturePath);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
   return (

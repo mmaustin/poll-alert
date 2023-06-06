@@ -2,7 +2,7 @@ import { WhereToVote, LocationOnOutlined } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import unitedStates from 'statesFolder';
 
-import { Box, Typography, Divider, useTheme } from "@mui/material";
+import { Box, Typography, Divider, useTheme, Button } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from 'components/WidgetWrapper';
 import UserImage from 'components/UserImageWidget';
@@ -35,7 +35,7 @@ const UserWidget = () => {
       <FlexBetween
         gap="0.5rem"
         pb="1.1rem"
-        onClick={() => navigate(`/profile/${_id}`)}      
+        onClick={() => navigate(`/updateProfile/${_id}`)}      
       >
         <FlexBetween gap="1rem">
           <UserImage image={picturePath}/>

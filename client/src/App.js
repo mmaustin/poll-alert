@@ -26,7 +26,7 @@ function App() {
             <Route path='/' element={<LoginPage/>} />
             <Route path='/home' element={isAuth ? <HomePage/> : <Navigate to="/"/>} />
             <Route path='/state/:stateId' element={isAuth ? <StatePage/> : <Navigate to="/"/>} />
-            <Route path='/profile/:userId' element={isAuth ? <UserPage/> : <Navigate to='/'/>} />
+            <Route path='/updateProfile/:userId' element={isAuth ? <UserPage/> : <Navigate to='/'/>} />
             {/* <Route path='/home' element={<HomePage/>} />
             <Route path='/state/:stateId' element={<StatePage/>} />
             <Route path='/user/:userId' element={<UserPage/>} /> */}

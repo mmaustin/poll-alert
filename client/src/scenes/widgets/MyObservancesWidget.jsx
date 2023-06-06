@@ -57,6 +57,9 @@ const MyObservancesWidget = ({userId, picturePath}) => {
             padding: "1rem 2rem"
           }}
         />
+
+      <Divider sx={{margin: "1.25rem 0"}}/> 
+
         <Button
           disabled={!observance}
           onClick={handleObservance}
