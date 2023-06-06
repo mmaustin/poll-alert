@@ -19,13 +19,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 import unitedStates from "statesFolder";
-
+import { updateUser } from "state";
 
 const UserPage = () => {
 
   const stateOptions = unitedStates;
   const user = useSelector(state => state.user);
-  const {firstName, lastName, picturePath, stateId, congressDist, pollingPlace} = user;
+  const {_id, firstName, lastName, picturePath, stateId, congressDist, pollingPlace} = user;
 
   const initialUpdateValues = {
     firstName: firstName,
@@ -45,7 +45,29 @@ const UserPage = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
 
   const handleFormSubmit = async(values) => {
-    console.log(values);
+    const formData = new FormData();
+    for(let value in values){
+        formData.append(value, values[value]);
+    }
+    if(values.picture?.name){
+        formData.append("picturePath", values.picture.name);
+    }
+    const updatedUserResponse = await fetch(
+        `http://localhost:5001/users/${_id}`,
+        {
+            method: "POST",
+            body: formData,
+        }
+    );
+    const updatedUser = await updatedUserResponse.json();
+    if(!updatedUser.error){
+      dispatch(
+        updateUser({
+          user: updateUser.user,
+          token: updateUser.token,
+        })
+      )
+    }
   }
 
   return (
