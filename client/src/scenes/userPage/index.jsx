@@ -1,4 +1,3 @@
-import { WhereToVote } from "@mui/icons-material";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import UpdateUserForm from './UpdateUserForm';
 import Navbar from "scenes/navbar";

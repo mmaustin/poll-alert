@@ -2,7 +2,7 @@ import { WhereToVote, LocationOnOutlined } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import unitedStates from 'statesFolder';
 
-import { Box, Typography, Divider, useTheme, Button } from "@mui/material";
+import { Box, Typography, Divider, useTheme} from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from 'components/WidgetWrapper';
 import UserImage from 'components/UserImageWidget';
@@ -19,7 +19,7 @@ const UserWidget = () => {
   const navigate = useNavigate();
   //const token = useSelector(state => state.token);
   const dark = palette.neutral.dark;
-  const medium = palette.neutral.medium;
+  //const medium = palette.neutral.medium;
   const main = palette.neutral.main;
   const homeState = unitedStates.find(s => s._id === user.stateId);
   

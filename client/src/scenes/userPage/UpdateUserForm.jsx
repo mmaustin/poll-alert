@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 import {
     Box,
     Button,
@@ -6,20 +6,20 @@ import {
     useMediaQuery,
     Typography,
     useTheme,
-    FormControl,
-    MenuItem,
-    FormHelperText,
-    InputLabel,
-    Select
+    // FormControl,
+    // MenuItem,
+    // FormHelperText,
+    // InputLabel,
+    // Select
 } from "@mui/material";
 import EditOutLinedIcon from '@mui/icons-material/EditOutlined';
 import { Formik, Field } from "formik";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 import unitedStates from "statesFolder";
-import { updateUser, setLogout } from "state";
+import { setLogout } from "state";
 
 const UserPage = () => {
 
@@ -42,7 +42,7 @@ const UserPage = () => {
   //const [noUserOrPass, setNoUserOrPass] = useState('');
   const {palette} = useTheme();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width: 600px)");
 
   const handleFormSubmit = async(values) => {

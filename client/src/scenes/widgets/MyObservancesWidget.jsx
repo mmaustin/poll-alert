@@ -47,8 +47,10 @@ const MyObservancesWidget = ({userId, picturePath}) => {
       <FlexBetween gap='1.5rem'>
         <UserImage image={picturePath} />
         <InputBase
+          aria-label="observation-description"
           placeholder="Please Describe What You See"
           value={observance}
+          name="observance"
           onChange={(e)=> setObservance(e.target.value)}
           sx={{
             width: "100%",
