@@ -29,7 +29,7 @@ export const authSlice = createSlice({
         getObservances: (state, action)=>{
             state.observances = action.payload.observances;
         },
-        getObservance: (state, action) => {
+        setObservance: (state, action) => {
             //remember, the post is already in state.post. we're replacing
             //that post with the payload post that has the updated likes info.
             //if it's not the updated likes post, just return the post.
@@ -47,5 +47,5 @@ export const authSlice = createSlice({
     }
 })
 
-export const {setMode, setLogin, setLogout, updateUser, getObservances, getObservance, getStateObservances} = authSlice.actions;
+export const {setMode, setLogin, setLogout, updateUser, getObservances, setObservance, getStateObservances} = authSlice.actions;
 export default authSlice.reducer;
