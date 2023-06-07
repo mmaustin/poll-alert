@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import state, { getObservances } from "state";
+import { getObservances } from "state";
 import ObservanceWidget from "./ObservanceWidget";
 
 
-const ObservancesWidget = ({userId}) => {
+const ObservancesWidget = () => {
 
   const dispatch = useDispatch();
   const observances = useSelector(state => state.observances);
@@ -24,7 +24,24 @@ const ObservancesWidget = ({userId}) => {
   }, []) //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div>ObservancesWidget</div>
+    <>
+      {observances?.map(({
+        _id, userId, firstName, lastName, description, pollingPlace,
+        alsoObserved, userStateId, userPicturePath
+      }) => (
+        <ObservanceWidget
+          key={_id}
+          observanceId={_id}
+          userId={userId}
+          name={`${firstName} ${lastName}`}
+          description={description}
+          pollingPlace={pollingPlace}
+          alsoObserved={alsoObserved}
+          stateId={userStateId}
+          picturePath={userPicturePath}
+        />
+      ))}
+    </>
   )
 }
 export default ObservancesWidget;
