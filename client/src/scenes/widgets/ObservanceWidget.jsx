@@ -1,9 +1,12 @@
 import { ChatBubbleOutlineOutlined, FavoriteBorderOutlined, FavoriteOutlined, Delete } from "@mui/icons-material";
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
+import UserImage from "components/UserImageWidget";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { setObservance, getObservances } from "state";
+import unitedStates from "statesFolder";
+
 
 
 const ObservanceWidget = ({
@@ -25,6 +28,8 @@ const ObservanceWidget = ({
   const {palette} = useTheme();
   const main = palette.neutral.main;
   const primary = palette.primary.main;
+  const observanceState = unitedStates.find(s => s._id === stateId);
+  const {name: stateName} = observanceState;
   
   const patchObservance = async () => {
     const response = await fetch(`http://localhost:5001/observances/${observanceId}/observed`,{
@@ -50,14 +55,16 @@ const ObservanceWidget = ({
 
   return (
     <WidgetWrapper m="2rem 0">
+      <UserImage image={picturePath}/>
       <div>
         <Typography>{name}</Typography>
+        <Typography>{stateName}</Typography>
         <Typography>{pollingPlace}</Typography>
       </div>
       <Typography>
         {description}
       </Typography>
-        {picturePath && (
+        {/* {picturePath && (
           <img
             width='100%'
             height='auto'
@@ -65,7 +72,7 @@ const ObservanceWidget = ({
             style={{borderRadius: '0.75rem', marginTop: '0.75ren'}}
             src={`http://localhost:5001/assets/${picturePath}`}
           />
-        )}
+        )} */}
         <FlexBetween mt='0.25rem'>
           <FlexBetween gap='1rem'>
 

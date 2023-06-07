@@ -3,7 +3,9 @@ import { useSelector } from "react-redux";
 import Navbar from "scenes/navbar";
 import MyObservancesWidget from "scenes/widgets/MyObservancesWidget";
 import ObservancesWidget from "scenes/widgets/ObservancesWidget";
+import UnitedStatesWidget from "scenes/widgets/UnitedStatesWidget";
 import UserWidget from "scenes/widgets/UserWidget";
+
 
 
 const HomePage = () => {
@@ -32,7 +34,7 @@ const HomePage = () => {
          <ObservancesWidget />
         </Box>
         {isNonMobileScreens && <Box flexBasis="26%">
-          
+          <UnitedStatesWidget />
           <Box m='2rem 0' />
           
         </Box>}        
