@@ -2,7 +2,9 @@ import { Box, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import Navbar from "scenes/navbar";
 import MyObservancesWidget from "scenes/widgets/MyObservancesWidget";
+import ObservancesWidget from "scenes/widgets/ObservancesWidget";
 import UserWidget from "scenes/widgets/UserWidget";
+
 
 const HomePage = () => {
 
@@ -27,6 +29,7 @@ const HomePage = () => {
           mt={isNonMobileScreens ? undefined : "2rem"}
         >
          <MyObservancesWidget userId={_id} picturePath={picturePath} /> 
+         <ObservancesWidget />
         </Box>
         {isNonMobileScreens && <Box flexBasis="26%">
           

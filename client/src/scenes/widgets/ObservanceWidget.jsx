@@ -1,9 +1,9 @@
-import { ChatBubbleOutlineOutlined, FavoriteBorderOutlined, FavoriteOutlined, ShareOutlined } from "@mui/icons-material";
+import { ChatBubbleOutlineOutlined, FavoriteBorderOutlined, FavoriteOutlined, Delete } from "@mui/icons-material";
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useDispatch, useSelector } from "react-redux";
-import { setObservance } from "state";
+import { setObservance, getObservances } from "state";
 
 
 const ObservanceWidget = ({
@@ -37,7 +37,16 @@ const ObservanceWidget = ({
     });
     const updatedObservance = await response.json();
     dispatch(setObservance({observance: updatedObservance}));
-  };  
+  };
+
+  const deleteObservance = async() => {
+    const response = await fetch(`http://localhost:5001/observances/${observanceId}`,{
+      method: 'DELETE',
+      headers: {Authorization: `Bearer ${token}`}
+    });
+    const data = await response.json();
+    dispatch(getObservances({observances: data}))    
+  };
 
   return (
     <WidgetWrapper m="2rem 0">
@@ -72,9 +81,11 @@ const ObservanceWidget = ({
             </FlexBetween>
           </FlexBetween>
 
-          <IconButton>
-                <ShareOutlined/>
-          </IconButton>
+          {loggedInUserId === userId && (
+            <IconButton onClick={deleteObservance}>
+                  <Delete/>
+            </IconButton>
+          )}
         </FlexBetween>
     </WidgetWrapper>
   )
