@@ -28,6 +28,7 @@ export const createObservance = async(req, res) => {
 
 export const getObservances = async (req, res) => {
   try {
+    // throw new Error('help');
     const observances = await Observance.find();
     res.status(200).json(observances);
 

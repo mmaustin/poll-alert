@@ -1,18 +1,22 @@
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Navbar from "scenes/navbar";
+import MyObservancesWidget from "scenes/widgets/MyObservancesWidget";
 import StateObservancesWidget from "scenes/widgets/StateObservancesWidget";
 import unitedStates from "statesFolder";
+
 
 
 const StatePage = () => {
 
   const {stateId} = useParams();
-  const st = unitedStates.filter(s => s._id === stateId);
-  const {flagPicturePath, name} = st[0];  
+  const {_id, picturePath} = useSelector(state => state.user);
 
   return (
     <>
+      <Navbar/>
+      <MyObservancesWidget userId={_id} picturePath={picturePath} />
       <StateObservancesWidget stateId={stateId} />
-      <div>{name}</div>
     </>
   )
 }

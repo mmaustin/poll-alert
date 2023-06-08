@@ -8,7 +8,10 @@ const StateObservancesWidget = ({stateId}) => {
 
   const dispatch = useDispatch();
   const observances = useSelector(state => state.observances);
-  const stateObservances = observances.filter(item => item.userStateId === stateId);
+  let stateObservances = [];
+  if(observances.length > 0){
+    stateObservances = observances?.filter(item => item.userStateId === stateId);
+  }
   console.log(stateObservances);
   const token = useSelector(state => state.token);
   
@@ -19,7 +22,11 @@ const StateObservancesWidget = ({stateId}) => {
       headers: {Authorization: `Bearer ${token}`}
     });
     const data = await response.json();
-    dispatch(getObservances({observances: data}))
+    if(!data.message){
+      dispatch(getObservances({observances: data}));
+    } else {
+      return
+    }
   }
 
   useEffect(() => {
@@ -28,7 +35,7 @@ const StateObservancesWidget = ({stateId}) => {
 
   return (
     <>
-      {stateObservances?.map(({
+      {stateObservances.length > 0 ? stateObservances?.map(({
         _id, userId, firstName, lastName, description, pollingPlace,
         alsoObserved, userStateId, userPicturePath
       }) => (
@@ -43,7 +50,7 @@ const StateObservancesWidget = ({stateId}) => {
           stateId={userStateId}
           picturePath={userPicturePath}
         />
-      ))}
+      )) : <p>There are no observances yet</p>}
     </>
   )
 }

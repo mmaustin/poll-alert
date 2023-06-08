@@ -16,7 +16,12 @@ const ObservancesWidget = () => {
       headers: {Authorization: `Bearer ${token}`}
     });
     const data = await response.json();
-    dispatch(getObservances({observances: data}))
+    console.log(data);
+      if(!data.message){
+        dispatch(getObservances({observances: data}));
+      } else {
+        return
+      }
   }
 
   useEffect(() => {
@@ -25,7 +30,7 @@ const ObservancesWidget = () => {
 
   return (
     <>
-      {observances?.map(({
+      {observances.length > 0 ? observances?.map(({
         _id, userId, firstName, lastName, description, pollingPlace,
         alsoObserved, userStateId, userPicturePath
       }) => (
@@ -40,7 +45,7 @@ const ObservancesWidget = () => {
           stateId={userStateId}
           picturePath={userPicturePath}
         />
-      ))}
+      )) : <p>There are no observances yet.</p>}
     </>
   )
 }
