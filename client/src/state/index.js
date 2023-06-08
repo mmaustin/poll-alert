@@ -43,6 +43,7 @@ export const authSlice = createSlice({
         getStateObservances: (state, action) => {
             const stateObservances = action.payload.observances.filter((observance) => observance.stateId === action.payload.stateId);
             state.observances = stateObservances;
+            console.log(stateObservances);
         }
     }
 })

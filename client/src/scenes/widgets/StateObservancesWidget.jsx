@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getObservances } from "state";
+import { getObservances, getStateObservances } from "state";
 import ObservanceWidget from "./ObservanceWidget";
 
 
-const ObservancesWidget = ({stateId}) => {
+const StateObservancesWidget = ({stateId}) => {
 
   const dispatch = useDispatch();
   const observances = useSelector(state => state.observances);
+  const stateObservances = observances.filter(item => item.userStateId === stateId);
+  console.log(stateObservances);
   const token = useSelector(state => state.token);
+  
 
   const grabObservances = async () => {
     const response = await fetch('http://localhost:5001/observances', {
@@ -25,7 +28,7 @@ const ObservancesWidget = ({stateId}) => {
 
   return (
     <>
-      {observances?.map(({
+      {stateObservances?.map(({
         _id, userId, firstName, lastName, description, pollingPlace,
         alsoObserved, userStateId, userPicturePath
       }) => (
@@ -44,4 +47,4 @@ const ObservancesWidget = ({stateId}) => {
     </>
   )
 }
-export default ObservancesWidget;
+export default StateObservancesWidget;
