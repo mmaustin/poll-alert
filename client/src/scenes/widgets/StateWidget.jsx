@@ -1,27 +1,30 @@
+import unitedStates from "statesFolder";
 import { Typography, Box, useTheme } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
 
-const UnitedStatesWidget = () => {
+const StateWidget = ({stateId}) => {
 
   const {palette} = useTheme();
   const dark = palette.neutral.dark;
   const main = palette.neutral.main;
   const medium = palette.neutral.medium;
+  const state = unitedStates.find(usState => usState._id === stateId);
+  const {name, populationApprox, governor, flagPicturePath, senators, totalReps } = state;
 
   return (
     <WidgetWrapper>
       <FlexBetween >
         <Typography color={dark} variant='h5' fontWeight='500'>
-          Joseph R. Biden
+          {name}
         </Typography>
-        <Typography color={dark} variant='h5' fontWeight='500'>Kamala D. Harris</Typography>
+        <Typography color={dark} variant='h5' fontWeight='500'>{governor}</Typography>
       </FlexBetween>
       <img
         width='100%'
-        height='auto'
-        alt='national flag'
-        src='http://localhost:5001/assets/us-flag.jpeg'
+        height='100px'
+        alt='state flag'
+        src={`http://localhost:5001/assets/${flagPicturePath}`}
         style={{borderRadius: '0.75', margin: '0.75rem 0'}}
       />
       <Box display='flex' justifyContent='center' alignItems='center' >
@@ -30,4 +33,4 @@ const UnitedStatesWidget = () => {
     </WidgetWrapper>
   )
 }
-export default UnitedStatesWidget;
+export default StateWidget
