@@ -17,11 +17,11 @@ const ObservancesWidget = () => {
     });
     const data = await response.json();
     console.log(data);
-      if(!data.message || !data.error){
-        dispatch(getObservances({observances: data}));
-      } else if (data.error === 'jwt expired'){
-        dispatch(setLogout());
-      }
+    if(!data.message && !data.error ){
+      dispatch(getObservances({observances: data}));
+    } else {
+      dispatch(setLogout());
+    }
   }
 
   useEffect(() => {

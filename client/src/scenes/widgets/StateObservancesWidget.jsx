@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getObservances } from "state";
+import { getObservances, setLogout } from "state";
 import ObservanceWidget from "./ObservanceWidget";
 
 
@@ -12,7 +12,7 @@ const StateObservancesWidget = ({stateId}) => {
   if(observances.length > 0){
     stateObservances = observances?.filter(item => item.userStateId === stateId);
   }
-  console.log(stateObservances);
+  //console.log(stateObservances);
   const token = useSelector(state => state.token);
   
 
@@ -22,10 +22,11 @@ const StateObservancesWidget = ({stateId}) => {
       headers: {Authorization: `Bearer ${token}`}
     });
     const data = await response.json();
-    if(!data.message){
+    console.log(data);
+    if(!data.message && !data.error ){
       dispatch(getObservances({observances: data}));
     } else {
-      return
+      dispatch(setLogout());
     }
   }
 
