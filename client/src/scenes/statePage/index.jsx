@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "scenes/navbar";
 import MyObservancesWidget from "scenes/widgets/MyObservancesWidget";
 import StateObservancesWidget from "scenes/widgets/StateObservancesWidget";
+import StateWidget from "scenes/widgets/StateWidget";
 import UnitedStatesWidget from "scenes/widgets/UnitedStatesWidget";
 import UserWidget from "scenes/widgets/UserWidget";
 import unitedStates from "statesFolder";
@@ -39,7 +40,7 @@ const StatePage = () => {
         <StateObservancesWidget stateId={stateId} />
         </Box>
         {isNonMobileScreens && <Box flexBasis="26%">
-          <UnitedStatesWidget />
+          <StateWidget stateId={stateId} />
           <Box m='2rem 0' />
           
         </Box>}        
