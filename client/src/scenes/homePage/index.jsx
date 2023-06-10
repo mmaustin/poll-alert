@@ -1,11 +1,11 @@
 import { Box, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import Navbar from "scenes/navbar";
+import ContactWidget from "scenes/widgets/ContactWidget";
 import MyObservancesWidget from "scenes/widgets/MyObservancesWidget";
 import ObservancesWidget from "scenes/widgets/ObservancesWidget";
 import UnitedStatesWidget from "scenes/widgets/UnitedStatesWidget";
 import UserWidget from "scenes/widgets/UserWidget";
-
 
 
 const HomePage = () => {
@@ -25,6 +25,8 @@ const HomePage = () => {
       >
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
           <UserWidget />
+          <Box mt='2rem'></Box>
+          <ContactWidget />
         </Box>
         <Box
           flexBasis={isNonMobileScreens ? "26%" : undefined}

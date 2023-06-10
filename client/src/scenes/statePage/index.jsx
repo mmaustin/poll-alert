@@ -2,12 +2,12 @@ import { Box, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Navbar from "scenes/navbar";
+import ContactWidget from "scenes/widgets/ContactWidget";
 import MyObservancesWidget from "scenes/widgets/MyObservancesWidget";
 import StateObservancesWidget from "scenes/widgets/StateObservancesWidget";
 import StateWidget from "scenes/widgets/StateWidget";
-import UnitedStatesWidget from "scenes/widgets/UnitedStatesWidget";
 import UserWidget from "scenes/widgets/UserWidget";
-import unitedStates from "statesFolder";
+
 
 
 const StatePage = () => {
@@ -28,6 +28,8 @@ const StatePage = () => {
       >
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
           <UserWidget />
+          <Box mt='2rem'></Box>
+          <ContactWidget />
         </Box>
         <Box
           flexBasis={isNonMobileScreens ? "26%" : undefined}
