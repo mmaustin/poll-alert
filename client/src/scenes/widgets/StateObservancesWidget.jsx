@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getObservances, getStateObservances } from "state";
+import { getObservances } from "state";
 import ObservanceWidget from "./ObservanceWidget";
 
 

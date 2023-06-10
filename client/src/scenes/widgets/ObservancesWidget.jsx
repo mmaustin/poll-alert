@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getObservances } from "state";
+import { getObservances, setLogout } from "state";
 import ObservanceWidget from "./ObservanceWidget";
 
 
@@ -17,10 +17,10 @@ const ObservancesWidget = () => {
     });
     const data = await response.json();
     console.log(data);
-      if(!data.message){
+      if(!data.message || !data.error){
         dispatch(getObservances({observances: data}));
-      } else {
-        return
+      } else if (data.error === 'jwt expired'){
+        dispatch(setLogout());
       }
   }
 
