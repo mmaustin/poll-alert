@@ -6,11 +6,6 @@ import {
     useMediaQuery,
     Typography,
     useTheme,
-    // FormControl,
-    // MenuItem,
-    // FormHelperText,
-    // InputLabel,
-    // Select
 } from "@mui/material";
 import EditOutLinedIcon from '@mui/icons-material/EditOutlined';
 import { Formik, Field } from "formik";
@@ -90,7 +85,7 @@ const Form = () => {
             displayToFalse();
             return
         }
-        //allows us to send form info with image
+        
         const formData = new FormData();
         for(let value in values){
             formData.append(value, values[value]);
@@ -169,10 +164,10 @@ const Form = () => {
         }) => (
             <form onSubmit={handleSubmit}>
                 {displayError && (
-                    <p>Please Fill Out All Of The Fields</p>
+                    <Typography color='red' variant="h5" fontWeight='500'>Please Fill Out All Of The Required Fields</Typography>
                 )}
                 {noUserOrPass && (
-                    <p>{noUserOrPass}</p>
+                    <Typography color='red' variant="h5" fontWeight='500'>{noUserOrPass}</Typography>
                 )}
                 <Box
                     display="grid"
@@ -333,6 +328,12 @@ const Form = () => {
                         }
                     </Typography>
                 </Box>
+                {displayError && (
+                    <Typography color='red' variant="h5" fontWeight='500'>Please Fill Out All Of The Required Fields</Typography>
+                )}
+                {noUserOrPass && (
+                    <Typography color='red' variant="h5" fontWeight='500'>{noUserOrPass}</Typography>
+                )}                
             </form>
         )}
     </Formik>
