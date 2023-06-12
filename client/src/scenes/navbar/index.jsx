@@ -49,7 +49,7 @@ const Navbar = () => {
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween backgroundColor='black' borderRadius="9px" padding="0.1rem 1.5rem">
-            <InputBase sx={{ color: 'white', fontWeight: 'bold' }} placeholder="Help Us Secure The Vote"/>
+            <InputBase id='secure-the-vote-msg' sx={{ color: 'white', fontWeight: 'bold' }} placeholder="Help Us Secure The Vote"/>
             <IconButton>
               <HowToVoteTwoTone color="success" />
             </IconButton>
@@ -66,14 +66,13 @@ const Navbar = () => {
               <LightMode sx={{color: dark, fontSize: "25px"}} />
             )}
           </IconButton>
-          <Button color='inherit'>About</Button>
           <Button color='inherit' onClick={()=> navigate('/home')}>Home</Button>
           {/* <Button color='inherit'> */}
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
             <Select
               labelId="demo-simple-select-helper-label"
-              id="demo-simple-select-helper"
+              id="demo-simple-select-helper-label"
               value={state}
               label="State"
               onChange={handleChange}
@@ -87,10 +86,17 @@ const Navbar = () => {
             </Select>
             <FormHelperText>Select A State</FormHelperText>
           </FormControl>
-          {state && <Button onClick={() => navigate(`/state/${state}`)} size='small' variant='contained'>State Page</Button>}
+          {state && <Button onClick={() => {
+            navigate(`/state/${state}`);
+            setTimeout(() => {
+              setState('');
+            }, 500)
+            }
+          } size='small' variant='contained'>State Page</Button>}
           {/* </Button> */}
           <FormControl variant="standard" value={fullName}>
               <Select
+                id='logged-in-user'
                 value={fullName}
                 sx={{
                   backgroundColor: neutralLight,
@@ -150,8 +156,7 @@ const Navbar = () => {
                 <LightMode sx={{color: dark, fontSize: "25px"}} />
               )}
             </IconButton>
-            <Button color='inherit'>About</Button>
-          <Button color='inherit'>Home</Button>
+            <Button color='inherit' onClick={()=> navigate('/home')}>Home</Button>
           {/* <Button color='inherit'> */}
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
@@ -171,7 +176,13 @@ const Navbar = () => {
             </Select>
             <FormHelperText>Select A State</FormHelperText>
           </FormControl>
-          {state && <Button size='small' variant='contained'>State Page</Button>}
+          {state && <Button onClick={() => {
+            navigate(`/state/${state}`);
+            setTimeout(()=> {
+              setState('');
+            }, 500)
+            }
+          } size='small' variant='contained'>State Page</Button>}
           {/* </Button> */}
             <FormControl variant="standard" value={fullName}>
               <Select

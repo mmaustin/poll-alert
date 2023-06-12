@@ -30,6 +30,12 @@ const StatePage = () => {
           <UserWidget />
           <Box mt='2rem'></Box>
           <ContactWidget />
+          {!isNonMobileScreens && <>
+          <Box m='2rem 0'></Box>
+          <Box flexBasis="26%">
+          <StateWidget stateId={stateId} />
+          
+          </Box></>}  
         </Box>
         <Box
           flexBasis={isNonMobileScreens ? "26%" : undefined}
@@ -45,7 +51,7 @@ const StatePage = () => {
           <StateWidget stateId={stateId} />
           <Box m='2rem 0' />
           
-        </Box>}        
+        </Box>}       
       </Box>  
     </Box>    
     // <>
