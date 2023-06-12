@@ -184,7 +184,8 @@ const Form = () => {
                 >
                     {isRegister && (
                         <>
-                          <div>
+                          <Box >
+                            <label htmlFor="stateId" >Select Your State (required)</label>
                             <Field
                               as='select'
                               id="stateId"
@@ -199,9 +200,9 @@ const Form = () => {
                                 return <option key={state._id} value={state._id}>{state.name}</option>
                               })}
                             </Field>
-                          </div>                    
+                          </Box>                    
                             <TextField
-                                label="First Name"
+                                label="First Name (required)"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 value={values.firstName}
@@ -211,7 +212,7 @@ const Form = () => {
                                 sx={{gridColumn: "span 2"}}
                             />
                             <TextField
-                                label="Last Name"
+                                label="Last Name (required)"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 value={values.lastame}
@@ -221,7 +222,7 @@ const Form = () => {
                                 sx={{gridColumn: "span 2"}}
                             />
                             <TextField
-                                label="Congressional District"
+                                label="Congressional District (required)"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 value={values.congressDist}
@@ -231,7 +232,7 @@ const Form = () => {
                                 sx={{gridColumn: "span 4"}}
                             />
                             <TextField
-                                label="Polling Place"
+                                label="Polling Place (required)"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 value={values.pollingPlace}
@@ -276,7 +277,7 @@ const Form = () => {
                         </>
                     )}
                     <TextField
-                        label="Email"
+                        label="Email (required)"
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.email}
@@ -286,7 +287,7 @@ const Form = () => {
                         sx={{gridColumn: "span 4"}}
                     />                    
                     <TextField
-                        label="Password"
+                        label="Password (required)"
                         type="password"
                         onBlur={handleBlur}
                         onChange={handleChange}
