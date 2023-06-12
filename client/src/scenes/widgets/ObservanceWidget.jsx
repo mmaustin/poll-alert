@@ -1,4 +1,4 @@
-import { ChatBubbleOutlineOutlined, FavoriteBorderOutlined, FavoriteOutlined, Delete } from "@mui/icons-material";
+import { Person, FavoriteBorderOutlined, FavoriteOutlined, Delete } from "@mui/icons-material";
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import UserImage from "components/UserImageWidget";
@@ -22,6 +22,8 @@ const ObservanceWidget = ({
 
   const dispatch = useDispatch();
   const loggedInUserId = useSelector(state => state.user._id);
+  const userPollingPlace = useSelector(state => state.user.pollingPlace);
+  console.log(userPollingPlace, pollingPlace);
   const token = useSelector(state => state.token);
   const isLiked = Boolean(alsoObserved[loggedInUserId]);
   const observedCount = Object.keys(alsoObserved).length;
@@ -56,12 +58,21 @@ const ObservanceWidget = ({
   return (
     <WidgetWrapper m="2rem 0">
       <UserImage image={picturePath}/>
-      <div>
-        <Typography>{name}</Typography>
-        <Typography>{stateName}</Typography>
-        <Typography>{pollingPlace}</Typography>
-      </div>
-      <Typography>
+      <Box>
+        <FlexBetween>
+          <IconButton><Person/></IconButton>
+          <Typography>{name}</Typography>
+        </FlexBetween>
+        <FlexBetween>
+          <Typography>STATE</Typography>
+          <Typography>{stateName}</Typography>
+        </FlexBetween>
+        <Divider sx={{margin: "1.25rem 0"}}/>
+      </Box>
+      {/* <Typography>
+        ALLEDGED MALFEASANCE:
+      </Typography> */}
+      <Typography variant="h5" fontWeight='500'>
         {description}
       </Typography>
         {/* {picturePath && (
@@ -75,7 +86,7 @@ const ObservanceWidget = ({
         )} */}
         <FlexBetween mt='0.25rem'>
           <FlexBetween gap='1rem'>
-
+            { pollingPlace === userPollingPlace && (
             <FlexBetween gap='0.3rem'>
               <IconButton onClick={patchObservance}>
                 {isLiked ? ( 
@@ -86,6 +97,7 @@ const ObservanceWidget = ({
               </IconButton>
               <Typography>{observedCount}</Typography>
             </FlexBetween>
+            )}   
           </FlexBetween>
 
           {loggedInUserId === userId && (

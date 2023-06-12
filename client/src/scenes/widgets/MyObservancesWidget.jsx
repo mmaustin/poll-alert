@@ -48,7 +48,7 @@ const MyObservancesWidget = ({userId, picturePath}) => {
         <UserImage image={picturePath} />
         <InputBase
           aria-label="observation-description"
-          placeholder="Please Describe What You See"
+          placeholder="(Max: 200 Characters)"
           value={observance}
           name="observance"
           onChange={(e)=> setObservance(e.target.value)}
@@ -59,7 +59,7 @@ const MyObservancesWidget = ({userId, picturePath}) => {
             padding: "1rem 2rem"
           }}
         />
-
+      </FlexBetween>      
       <Divider sx={{margin: "1.25rem 0"}}/> 
 
         <Button
@@ -71,9 +71,8 @@ const MyObservancesWidget = ({userId, picturePath}) => {
             borderRadius: "3rem"
           }}
         >
-          Observed
+          Submit
         </Button>        
-      </FlexBetween>      
     </WidgetWrapper>
   )
 }
