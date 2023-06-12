@@ -149,14 +149,23 @@ const Navbar = () => {
             </Box>
           {/* Menu Items */}
           <FlexBetween display="flex" flexDirection="column" justifyContent="center" alignItems="center" gap="2rem">
-            <IconButton onClick={()=> dispatch(setMode())} sx={{fontSize: "25px"}}>
+            <IconButton onClick={()=> { 
+              dispatch(setMode());
+              setIsMobileMenuToggled(!isMobileMenuToggled);
+              }
+            }
+              sx={{fontSize: "25px"}}>
               {theme.palette.mode === "dark" ? (
                 <DarkMode sx={{fontSize: "25px"}}/>
               ) : (
                 <LightMode sx={{color: dark, fontSize: "25px"}} />
               )}
             </IconButton>
-            <Button color='inherit' onClick={()=> navigate('/home')}>Home</Button>
+            <Button color='inherit' onClick={()=> {
+              navigate('/home');
+              setIsMobileMenuToggled(!isMobileMenuToggled);
+              }
+            }>Home</Button>
           {/* <Button color='inherit'> */}
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
@@ -178,6 +187,7 @@ const Navbar = () => {
           </FormControl>
           {state && <Button onClick={() => {
             navigate(`/state/${state}`);
+            setIsMobileMenuToggled(!isMobileMenuToggled);
             setTimeout(()=> {
               setState('');
             }, 500)
