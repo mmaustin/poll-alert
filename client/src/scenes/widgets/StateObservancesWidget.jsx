@@ -2,12 +2,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getObservances, setLogout } from "state";
 import ObservanceWidget from "./ObservanceWidget";
+import { Typography, useTheme } from "@mui/material";
+import FlexBetween from "components/FlexBetween";
 
 
 const StateObservancesWidget = ({stateId}) => {
 
   const dispatch = useDispatch();
   const observances = useSelector(state => state.observances);
+  const { palette } = useTheme();
   let stateObservances = [];
   if(observances.length > 0){
     stateObservances = observances?.filter(item => item.userStateId === stateId);
@@ -51,7 +54,11 @@ const StateObservancesWidget = ({stateId}) => {
           stateId={userStateId}
           picturePath={userPicturePath}
         />
-      )) : <p>There are no observances yet</p>}
+      )) : <FlexBetween >
+        <Typography mt={'2rem'} sx={{ color: palette.primary.dark}} variant="h4" fontWeight='500' >
+          There Are No Reports Of Irregularities At This Time.
+        </Typography>
+      </FlexBetween> }
     </>
   )
 }

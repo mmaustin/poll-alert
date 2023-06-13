@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getObservances, setLogout } from "state";
 import ObservanceWidget from "./ObservanceWidget";
+import FlexBetween from "components/FlexBetween";
+import { useTheme, Typography } from "@mui/material";
 
 
 const ObservancesWidget = () => {
@@ -9,6 +11,7 @@ const ObservancesWidget = () => {
   const dispatch = useDispatch();
   const observances = useSelector(state => state.observances);
   const token = useSelector(state => state.token);
+  const { palette } = useTheme();
 
   const grabObservances = async () => {
     const response = await fetch('http://localhost:5001/observances', {
@@ -45,7 +48,11 @@ const ObservancesWidget = () => {
           stateId={userStateId}
           picturePath={userPicturePath}
         />
-      )) : <p>There are no observances yet.</p>}
+      )) : <FlexBetween >
+      <Typography mt={'2rem'} sx={{ color: palette.primary.dark}} variant="h4" fontWeight='500' >
+        There Are No Reports Of Irregularities At This Time.
+      </Typography>
+    </FlexBetween> }
     </>
   )
 }
