@@ -61,18 +61,23 @@ const MyObservancesWidget = ({userId, picturePath}) => {
         />
       </FlexBetween>      
       <Divider sx={{margin: "1.25rem 0"}}/> 
-
-        <Button
-          disabled={!observance}
-          onClick={handleObservance}
-          sx={{
-            color: palette.background.alt,
-            backgroundColor: palette.primary.main,
-            borderRadius: "3rem"
-          }}
-        >
-          Submit
-        </Button>        
+        { observance.length <= 200 ? (
+          <Button
+            disabled={!observance}
+            onClick={handleObservance}
+            sx={{
+              color: palette.background.alt,
+              backgroundColor: palette.primary.main,
+              borderRadius: "3rem"
+            }}
+          >
+            Submit
+          </Button>
+        ) : 
+            <FlexBetween>
+              <Typography fontWeight='500' variant='h5' sx={{color: 'red'}} >Please Shorten Your Description!</Typography>
+            </FlexBetween>
+        }      
     </WidgetWrapper>
   )
 }
