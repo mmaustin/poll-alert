@@ -15,7 +15,6 @@ const StateObservancesWidget = ({stateId}) => {
   if(observances.length > 0){
     stateObservances = observances?.filter(item => item.userStateId === stateId);
   }
-  //console.log(stateObservances);
   const token = useSelector(state => state.token);
   
 
@@ -25,7 +24,6 @@ const StateObservancesWidget = ({stateId}) => {
       headers: {Authorization: `Bearer ${token}`}
     });
     const data = await response.json();
-    console.log(data);
     if(!data.message && !data.error ){
       dispatch(getObservances({observances: data}));
     } else {

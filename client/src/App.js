@@ -27,9 +27,6 @@ function App() {
             <Route path='/home' element={isAuth ? <HomePage/> : <Navigate to="/"/>} />
             <Route path='/state/:stateId' element={isAuth ? <StatePage/> : <Navigate to="/"/>} />
             <Route path='/updateProfile/:userId' element={isAuth ? <UpdateUser/> : <Navigate to='/'/>} />
-            {/* <Route path='/home' element={<HomePage/>} />
-            <Route path='/state/:stateId' element={<StatePage/>} />
-            <Route path='/user/:userId' element={<UserPage/>} /> */}
           </Routes>
         </ThemeProvider>   
       </BrowserRouter>

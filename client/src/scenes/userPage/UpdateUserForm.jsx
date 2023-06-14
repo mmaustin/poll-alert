@@ -1,4 +1,3 @@
-//import { useState, useEffect } from "react";
 import {
     Box,
     Button,
@@ -6,15 +5,9 @@ import {
     useMediaQuery,
     Typography,
     useTheme,
-    // FormControl,
-    // MenuItem,
-    // FormHelperText,
-    // InputLabel,
-    // Select
 } from "@mui/material";
 import EditOutLinedIcon from '@mui/icons-material/EditOutlined';
 import { Formik, Field } from "formik";
-//import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
@@ -38,21 +31,11 @@ const UserPage = () => {
   }  
 
   
-  //const [displayError, setDisplayError] = useState(false);
-  //const [noUserOrPass, setNoUserOrPass] = useState('');
   const {palette} = useTheme();
   const dispatch = useDispatch();
-  //const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width: 600px)");
 
   const handleFormSubmit = async(values) => {
-    // const formData = new FormData();
-    // for(let value in values){
-    //     formData.append(value, values[value]);
-    // }
-    // if(values.picture?.name){
-    //     formData.append("picturePath", values.picture.name);
-    // }
     const updatedUserResponse = await fetch(
         `http://localhost:5001/users/${_id}`,
         {
@@ -97,12 +80,6 @@ const UserPage = () => {
             resetForm,
         }) => (
             <form onSubmit={handleSubmit}>
-                {/* {displayError && (
-                    <p>Please Fill Out All Of The Fields</p>
-                )}
-                {noUserOrPass && (
-                    <p>{noUserOrPass}</p>
-                )} */}
                 <Box
                     display="grid"
                     gap="30px"

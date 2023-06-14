@@ -8,7 +8,6 @@ const StateWidget = ({stateId}) => {
   const {palette} = useTheme();
   const dark = palette.neutral.dark;
   const main = palette.neutral.main;
-  const medium = palette.neutral.medium;
   const state = unitedStates.find(usState => usState._id === stateId);
   const {name, populationApprox, governor, flagPicturePath, senators, totalReps } = state;
   const senatorNames = senators.join(' & ');

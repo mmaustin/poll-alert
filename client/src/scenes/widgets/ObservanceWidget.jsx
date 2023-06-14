@@ -22,12 +22,10 @@ const ObservanceWidget = ({
 
   const dispatch = useDispatch();
   const loggedInUserId = useSelector(state => state.user._id);
-  const userPollingPlace = useSelector(state => state.user.pollingPlace);
   const token = useSelector(state => state.token);
   const isLiked = Boolean(alsoObserved[loggedInUserId]);
   const observedCount = Object.keys(alsoObserved).length;
   const {palette} = useTheme();
-  const main = palette.neutral.main;
   const primary = palette.primary.main;
   const observanceState = unitedStates.find(s => s._id === stateId);
   const {name: stateName} = observanceState;
@@ -72,21 +70,9 @@ const ObservanceWidget = ({
         </FlexBetween>
         <Divider sx={{margin: "1.25rem 0"}}/>
       </Box>
-      {/* <Typography>
-        ALLEDGED MALFEASANCE:
-      </Typography> */}
       <Typography p='5px' sx={{ color: palette.primary.dark}} variant="h5" fontWeight='500'>
         {description}
       </Typography>
-        {/* {picturePath && (
-          <img
-            width='100%'
-            height='auto'
-            alt='post'
-            style={{borderRadius: '0.75rem', marginTop: '0.75ren'}}
-            src={`http://localhost:5001/assets/${picturePath}`}
-          />
-        )} */}
         <FlexBetween mt='0.25rem'>
           <FlexBetween gap='1rem'>
             <FlexBetween gap='0.3rem'>

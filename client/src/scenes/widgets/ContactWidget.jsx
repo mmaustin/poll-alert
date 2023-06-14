@@ -10,8 +10,6 @@ const ContactWidget = () => {
 
   const {palette} = useTheme();
   const dark = palette.neutral.dark;
-  const main = palette.neutral.main;
-  const medium = palette.neutral.medium;
 
   return (
     <WidgetWrapper>
@@ -40,26 +38,6 @@ const ContactWidget = () => {
           </>      
         </CardContent>
       </Card>
-      {/* <FlexBetween>
-        <Typography color={dark} variant='h5' fontWeight='500'>
-          Sponsored
-        </Typography>
-        <Typography color={medium}>Create Ad</Typography>
-      </FlexBetween>
-      <img
-        width='100%'
-        height='auto'
-        alt='advert'
-        src='http://localhost:5001/assets/info4.jpeg'
-        style={{borderRadius: '0.75', margin: '0.75rem 0'}}
-      />
-      <FlexBetween>
-        <Typography color={main}>Mika Cosmetics</Typography>
-        <Typography color={medium}>mc.com</Typography>
-      </FlexBetween>
-      <Typography color={medium} m='0.5rem 0'>
-        Get your beauty products here at Mika.
-      </Typography> */}
     </WidgetWrapper>
   )
 }

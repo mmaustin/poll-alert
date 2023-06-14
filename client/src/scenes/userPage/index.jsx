@@ -12,21 +12,6 @@ const UpdateUser = () => {
   return (
     <Box>
       <Navbar/>
-      {/* <Box
-        width="100%"
-        backgroundColor={theme.palette.background.alt}
-        p="1rem 6%"
-        textAlign="center"
-      >
-      <Typography
-        fontWeight="bold"
-        fontSize="clamp(1rem, 2rem, 2.25rem)"
-        color="primary"
-      >
-        POLL<WhereToVote color="success" />ALERT
-      </Typography>
-      </Box>  */}
-
       <Box
         width={isNonMobileScreens ? "50%" : "93%"}
         p="2rem"

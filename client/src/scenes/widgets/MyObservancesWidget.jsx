@@ -35,7 +35,6 @@ const MyObservancesWidget = ({userId, picturePath}) => {
       }),
     });
     const observances = await response.json();
-    console.log(observances);
     if(!observances.message){
       dispatch(getObservances({observances}));
     }

@@ -8,16 +8,10 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
-// import authRoutes from './routes/auth.js';
-import userRoutes from './routes/userRoutes.js'
-import observancesRoutes from './routes/observanceRoutes.js'
-import {register, login} from './controllers/auth.js'
+import userRoutes from './routes/userRoutes.js';
+import observancesRoutes from './routes/observanceRoutes.js';
+import {register, login} from './controllers/auth.js';
 import { verifyToken } from './middleware/auth.js';
-import {createObservance} from './controllers/observances.js'
-// import { verifyToken } from './middleware/auth.js';
-// import User from './models/User.js';
-// import Post from './models/Post.js';
-// import {users, posts} from './data/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -46,15 +40,11 @@ const upload =  multer({storage});
 //Routes With Files
 app.post('/auth/register', upload.single('picture'), register);
 
-//An observance does not have a picture other than the user picture
-//app.post('/observances', verifyToken, createObservance);
-
-// //Routes not dependent on files/multer
+//Routes not dependent on files/multer
 app.post('/auth/login', login);
 app.use('/users', userRoutes);
 app.use('/observances', verifyToken, observancesRoutes);
 
-//Mongoose setup
 const PORT = process.env.PORT || 6001;
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -62,7 +52,4 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
-    //Add data one time
-    // User.insertMany(users);
-    // Post.insertMany(posts);
 }).catch((error) => console.log(`${error} did not connect`));

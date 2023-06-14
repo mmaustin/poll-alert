@@ -53,12 +53,7 @@ const StatePage = () => {
           
         </Box>}       
       </Box>  
-    </Box>    
-    // <>
-    //   <Navbar/>
-    //   <MyObservancesWidget userId={_id} picturePath={picturePath} />
-    //   <StateObservancesWidget stateId={stateId} />
-    // </>
+    </Box>
   )
 }
 export default StatePage
