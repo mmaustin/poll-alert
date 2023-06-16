@@ -5,7 +5,6 @@ export const createObservance = async(req, res) => {
   try {
     const {userId, description} = req.body;
     const user = await User.findById(userId);
-    console.log(req.body);
     const newObservance = new Observance({
       userId,
       description,
