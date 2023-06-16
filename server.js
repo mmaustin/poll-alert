@@ -37,6 +37,8 @@ const storage = multer.diskStorage({
 })
 const upload =  multer({storage});
 
+app.use(express.static(path.resolve(__dirname, './client/build')));
+
 //Routes With Files
 app.post('/auth/register', upload.single('picture'), register);
 
@@ -45,7 +47,11 @@ app.post('/auth/login', login);
 app.use('/users', userRoutes);
 app.use('/observances', verifyToken, observancesRoutes);
 
-const PORT = process.env.PORT || 6001;
+app.get('*', (req,res)=> {
+    res.sendFile(path.resolve(__dirname, './client/build', 'index.htmml'))
+})
+
+const PORT = process.env.PORT || 5001;
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

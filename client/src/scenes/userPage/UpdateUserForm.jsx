@@ -167,7 +167,7 @@ const UserPage = () => {
                                         >
                                             <input {...getInputProps()} />
                                             {!values.picture ? (
-                                                <p>Update Picture</p>
+                                                <p>Update Picture (jpg, jpeg, png files only)</p>
                                             ) : (
                                                 <FlexBetween>
                                                     <Typography>{values.picture.name}</Typography>
