@@ -55,7 +55,6 @@ const UserPage = () => {
         }
     );
     const updatedUser = await updatedUserResponse.json();
-    console.log(updatedUser);
     if(!updatedUser.error){
       dispatch(
         setLogout()

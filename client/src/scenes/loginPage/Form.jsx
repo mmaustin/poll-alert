@@ -95,6 +95,7 @@ const Form = () => {
         }
         const savedUserResponse = await fetch(
             "http://localhost:5001/auth/register",
+            // "/auth/register",
             {
                 method: "POST",
                 body: formData,
