@@ -75,31 +75,30 @@ export const colorTokens = {
             }),
       },
       typography: {
-        // fontFamily: ["Rubik", "sans-serif"].join(","),
-        fontFamily: ["Times New Roman", "sans-serif"].join(","),
+        fontFamily: ["Rubik", "sans-serif"].join(","),
         fontSize: 12,
         h1: {
-          fontFamily: ["Times New Roman", "sans-serif"].join(","),
+          fontFamily: ["Rubik", "sans-serif"].join(","),
           fontSize: 40,
         },
         h2: {
-          fontFamily: ["Times New Roman", "sans-serif"].join(","),
+          fontFamily: ["Rubik", "sans-serif"].join(","),
           fontSize: 32,
         },
         h3: {
-          fontFamily: ["Times New Roman", "sans-serif"].join(","),
+          fontFamily: ["Rubik", "sans-serif"].join(","),
           fontSize: 24,
         },
         h4: {
-          fontFamily: ["Times New Roman", "sans-serif"].join(","),
+          fontFamily: ["Rubik", "sans-serif"].join(","),
           fontSize: 20,
         },
         h5: {
-          fontFamily: ["Times New Roman", "sans-serif"].join(","),
+          fontFamily: ["Rubik", "sans-serif"].join(","),
           fontSize: 16,
         },
         h6: {
-          fontFamily: ["Times New Roman", "sans-serif"].join(","),
+          fontFamily: ["Rubik", "sans-serif"].join(","),
           fontSize: 14,
         },
       },
