@@ -1,8 +1,8 @@
-### POLL ALERT, purspose
+### POLL ALERT, purspose of the app
 -- To memorialize in real time potential irregularities witnessed at polling places
 
 ### Local Spinup
--- After cloning the github repo, run "npm server" from the top-level directory: ~/poll-alert 
+-- After cloning the github repo, run "npm start" from the top-level directory: ~/poll-alert 
 
 ### Functionality
 -- Login/Register
